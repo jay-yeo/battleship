@@ -2,6 +2,7 @@ package com.matritellabs.utama.jbd;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Player {
     private String playerName;
@@ -19,7 +20,7 @@ public class Player {
         sunkenShip = new ArrayList<>();
     }
 
-    
+
 
     //Getters
     public String getPlayerName() {
@@ -50,4 +51,13 @@ public class Player {
     public void setSunkenShip(List<Ship> sunkenShip) {
         this.sunkenShip = sunkenShip;
     }
+
+
+    public void setListOfShips(Player player1, Map<String, Integer> mapOfShips){
+        for (String key : mapOfShips.keySet()){
+            player1.listOfShip.add(new Ship(key, mapOfShips.get(key)));
+        }
+
+    }
+
 }

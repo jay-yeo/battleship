@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 public class Game {
-    public String gameName;
-    public Map<String, Integer> mapOfPieces;
-    public List<Player> listOfPlayers;
+    private String gameName;
+    private Map<String, Integer> mapOfPieces;
+    private List<Player> listOfPlayers;
 
     // Constructor
     public Game() {
@@ -51,4 +51,11 @@ public class Game {
         listOfPlayers.add(newPlayer);
     }
 
+    public Map<String, Integer> getMapOfPieces() {
+        return mapOfPieces;
+    }
+
+    public void setMapOfPieces(Map<String, Integer> mapOfPieces) {
+        this.mapOfPieces = mapOfPieces;
+    }
 }
