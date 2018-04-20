@@ -25,7 +25,7 @@ public class Game {
     public void setGamePlayer(String playerName) {
 
         // Create new player
-        Player newPlayer = new Player();
+        Player newPlayer = new Player(playerName);
 
         // Add player to listOfPlayers
         listOfPlayers.add(newPlayer);
