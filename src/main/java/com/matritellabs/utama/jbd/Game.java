@@ -41,6 +41,11 @@ public class Game {
         return outputString;
     }
 
+    // Get listOfPlayers
+    public List<Player> getListOfPlayers() {
+        return listOfPlayers;
+    }
+
     // Create and log new players
     public void setGamePlayer(String playerName) {
 

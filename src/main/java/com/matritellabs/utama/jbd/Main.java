@@ -10,6 +10,6 @@ public class Main {
         newGame.setGamePlayer("Daniel");
         newGame.setGamePlayer("Balint");
 
-        System.out.println(newGame);
+
     }
 }
