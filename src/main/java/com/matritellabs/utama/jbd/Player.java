@@ -1,5 +1,6 @@
 package com.matritellabs.utama.jbd;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
@@ -14,8 +15,8 @@ public class Player {
         playerName = playerN;
         myTable = new Table();
         opponentTable = new Table();
-        listOfShip = new List<Ship>();
-        sunkenShip = new List<Ship>();
+        listOfShip = new ArrayList<>();
+        sunkenShip = new ArrayList<>();
     }
 
     //Getters
