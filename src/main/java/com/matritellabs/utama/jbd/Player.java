@@ -20,8 +20,6 @@ public class Player {
     }
 
     //Getters
-
-
     public String getPlayerName() {
         return playerName;
     }
@@ -43,7 +41,6 @@ public class Player {
     }
 
     //setters
-
     public void setListOfShip(List<Ship> listOfShip) {
         this.listOfShip = listOfShip;
     }

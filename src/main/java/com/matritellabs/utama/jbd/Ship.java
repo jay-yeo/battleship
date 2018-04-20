@@ -12,7 +12,7 @@ public class Ship {
     private int shipMaxHits;
     private List<int[]> shipCoordinates;
 
-    public Ship(String shipIdentifier2, int shipSize2){
+    public Ship(String shipIdentifier2, int shipSize2) {
         shipIdentifier = shipIdentifier2;
         shipSize = shipSize2;
         shipSunk = false;
