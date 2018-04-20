@@ -1,12 +1,11 @@
 package com.matritellabs.utama.jbd;
 
 public class Table {
-    public int tableSize;
+    public static int tableSize = 10;
     public String[][] tableArray;
 
     // Constructor
-    public Table(int sizeOfTable) {
-        tableSize = sizeOfTable;
+    public Table() {
         tableArray = new String[tableSize][tableSize];
     }
 
