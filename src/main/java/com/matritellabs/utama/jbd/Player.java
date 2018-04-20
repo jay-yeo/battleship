@@ -19,6 +19,8 @@ public class Player {
         sunkenShip = new ArrayList<>();
     }
 
+    
+
     //Getters
     public String getPlayerName() {
         return playerName;
