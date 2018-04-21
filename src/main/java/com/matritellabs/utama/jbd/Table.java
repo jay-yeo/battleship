@@ -2,11 +2,11 @@ package com.matritellabs.utama.jbd;
 
 public class Table {
     public static int tableSize = 10;
-    public String[][] tableArray;
+    public int[][] tableArray;
 
     // Constructor
     public Table() {
-        tableArray = new String[tableSize][tableSize];
+        tableArray = new int[tableSize][tableSize];
     }
 
     // tableSize Getter
@@ -20,9 +20,12 @@ public class Table {
     }
 
     // Print Table Method
-    public void printTable(Table inputTable) {
-        for (int i = 0; i < inputTable.tableArray.length ; i++) {
-            System.out.println(inputTable.tableArray[i]);
+    public void printTable() {
+        for (int i = 0; i < tableArray.length ; i++) {
+            for (int j = 0; j < tableArray[i].length ; j++) {
+                System.out.print(tableArray[i][j] + " ");
+            }
+            System.out.println();
         }
     }
 

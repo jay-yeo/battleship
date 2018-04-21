@@ -2,61 +2,79 @@ package com.matritellabs.utama.jbd;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Player {
     private String playerName;
-    private Table myTable;
+    private Table playerTable;
     private Table opponentTable;
-    private List<Ship> listOfShip;
+    private List<Ship> listOfShips;
     private List<Ship> sunkenShip;
 
-    //constructor
-    public Player(String playerN) {
-        playerName = playerN;
-        myTable = new Table();
+
+    // Constructor
+    public Player(String nameOfPlayer) {
+        playerName = nameOfPlayer;
+        playerTable = new Table();
         opponentTable = new Table();
-        listOfShip = new ArrayList<>();
+        listOfShips = new ArrayList<>();
         sunkenShip = new ArrayList<>();
+        createShips();
+
     }
 
+    // Player toString
+    public String toString() {
+        return "Player{" +
+                "playerName='" + playerName + '\'' +
+                ", playerTable=" + playerTable +
+                ", opponentTable=" + opponentTable +
+                ", listOfShips=" + listOfShips +
+                ", sunkenShip=" + sunkenShip +
+                '}';
+    }
 
-
-    //Getters
+    // Get player name
     public String getPlayerName() {
         return playerName;
     }
 
-    public Table getMyTable() {
-        return myTable;
+    // Get player's list of ships
+    public List<Ship> getListOfShips() {
+        return listOfShips;
     }
 
+    // Get player view
+    public Table getPlayerTable() {
+        return playerTable;
+    }
+
+    // Get opponent view
     public Table getOpponentTable() {
         return opponentTable;
     }
 
-    public List<Ship> getListOfShip() {
-        return listOfShip;
-    }
+    // Create player's ship pieces and add to listOfShips
+    public void createShips() {
 
-    public List<Ship> getSunkenShip() {
-        return sunkenShip;
-    }
+        // Create Battleship
+        Battleship battleship = new Battleship();
+        listOfShips.add(battleship);
 
-    //setters
-    public void setListOfShip(List<Ship> listOfShip) {
-        this.listOfShip = listOfShip;
-    }
+        // Create Cruiser
+        Cruiser cruiser = new Cruiser();
+        listOfShips.add(cruiser);
 
-    public void setSunkenShip(List<Ship> sunkenShip) {
-        this.sunkenShip = sunkenShip;
-    }
+        // Create Carrier
+        Carrier carrier = new Carrier();
+        listOfShips.add(carrier);
 
+        // Create Submarine
+        Submarine submarine = new Submarine();
+        listOfShips.add(submarine);
 
-    public void setListOfShips(Player player1, Map<String, Integer> mapOfShips){
-        for (String key : mapOfShips.keySet()){
-            player1.listOfShip.add(new Ship(key, mapOfShips.get(key)));
-        }
+        // Create Destroyer
+        Destroyer destroyer = new Destroyer();
+        listOfShips.add(destroyer);
 
     }
 
