@@ -19,6 +19,11 @@ public class Table {
         this.tableSize = tableSize;
     }
 
+    // Set table field value
+    public void setTableField(int horzCoordinate, int vertCoordinate) {
+        tableArray[horzCoordinate][vertCoordinate] = 1;
+    }
+
     // Print Table Method
     public void printTable() {
         for (int i = 0; i < tableArray.length ; i++) {

@@ -16,9 +16,15 @@ public class Main {
 //        }
 
         System.out.println(newGame);
-        
+
         System.out.println("Game View:");
+        Ship battleship = newGame.getPlayerOne().getShip("Battleship");
+        newGame.getPlayerOne().placeShip(battleship,0,0);
         newGame.getPlayerOne().getPlayerTable().printTable();
+
+        System.out.println(newGame.getPlayerOne().getShip("Battleship"));
+
+
 
 
 

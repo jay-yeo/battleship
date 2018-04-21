@@ -78,4 +78,23 @@ public class Player {
 
     }
 
+    // Get ship
+    public Ship getShip(String shipType) {
+        for (Ship ship : listOfShips) {
+            if (ship.shipType == shipType) {
+                return ship;
+            }
+        }
+
+        return null;
+    }
+
+    // Place player ship
+    public void placeShip(Ship shipType, int horzPosition, int vertPosition) {
+        for (int i = 0; i < shipType.shipSize ; i++) {
+            playerTable.setTableField(horzPosition + i, vertPosition);
+        }
+
+    }
+
 }

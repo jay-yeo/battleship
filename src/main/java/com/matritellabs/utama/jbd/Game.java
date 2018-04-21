@@ -50,4 +50,5 @@ public class Game {
     public Player getPlayerTwo() {
         return playerTwo;
     }
+
 }
