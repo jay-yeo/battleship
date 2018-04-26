@@ -1,9 +1,6 @@
 package com.matritellabs.utama.jbd;
 import com.matritellabs.utama.helper.LineByLineReader;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Game {
     private String gameName;
     private Player playerOne;
@@ -33,24 +30,22 @@ public class Game {
             playerOne = newPlayer;
 
         } else if (playerNumber == 2) {
-            // Create playerTwo
+            // Create new playerTwo
             Player newPlayer = new Player(playerName);
             playerTwo = newPlayer;
         } else {
-            System.out.println("Invalid player number. Please select player one or two.");
+            System.out.println("Invalid player number. Please select player 1 or 2.");
         }
 
     }
 
     // Get Player One
     public Player getPlayerOne() {
-        
         return playerOne;
     }
 
     // Get Player Two
     public Player getPlayerTwo() {
-
         return playerTwo;
     }
 
