@@ -22,8 +22,9 @@ public class Main {
 
         // Place ships
         newGame.playerShipPlacement(newGame.getPlayerOne());
-        newGame.playerTurn(newGame.getPlayerOne());
 
+        // Privacy line-feed
+        newGame.clearConsole();
 
         // Player 2
         // Enter name
@@ -35,7 +36,24 @@ public class Main {
         // Place ships
         newGame.playerShipPlacement(newGame.getPlayerTwo());
 
-//        newGame.clearConsole():
+        // Privacy line-feed
+        newGame.clearConsole();
+
+        // Play game until either player has zero ships remaining
+        while (newGame.getPlayerOne().getListOfShips().size() != 0 || newGame.getPlayerTwo().getListOfShips().size() != 0) {
+
+            // Player one turn
+            newGame.playerTurn(newGame.getPlayerOne());
+
+            // Privacy line-feed
+            newGame.clearConsole();
+
+            // Player two turn
+            newGame.playerTurn(newGame.getPlayerTwo());
+
+        }
+
+
 //        System.out.println(newGame);
 
 //        System.out.println("Game View:");
