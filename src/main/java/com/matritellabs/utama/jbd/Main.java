@@ -22,21 +22,24 @@ public class Main {
         String playerTwoName = playerTwoNameInput.readLineFromStdIn();
         newGame.setGamePlayer(2, playerTwoName);
 
-        newGame.clearConsole();
+//        newGame.clearConsole();
         System.out.println(newGame);
 
-//        System.out.println("Game View:");
-//        Ship battleship = newGame.getPlayerOne().getShip("Battleship");
-//        Ship carrier = newGame.getPlayerOne().getShip("Carrier");
-//
-//
-//        newGame.getPlayerOne().placeShip(battleship,0,0, "H");
-//
-//
-//        newGame.getPlayerOne().placeShip(carrier,5,0, "V");
-//        newGame.getPlayerOne().getPlayerTable().printTable();
-//
-//        System.out.println(newGame.getPlayerOne().getShip("Battleship"));
+        System.out.println("Game View:");
+        Ship battleship = newGame.getPlayerOne().getShip("Battleship");
+        Ship carrier = newGame.getPlayerOne().getShip("Carrier");
+
+
+        newGame.getPlayerOne().placeShip(battleship,new Coordinate(2,2), "H");
+
+
+        newGame.getPlayerOne().placeShip(carrier,new Coordinate(4,5), "V");
+        newGame.getPlayerOne().placeShip(carrier,new Coordinate(8,3), "V");
+        newGame.getPlayerOne().placeShip(carrier,new Coordinate(8,1), "V");
+        newGame.getPlayerOne().placeShip(carrier,new Coordinate(3,8), "H");
+        newGame.getPlayerOne().getPlayerTable().printTable();
+
+        System.out.println(newGame.getPlayerOne().getShip("Battleship"));
 
 
 
