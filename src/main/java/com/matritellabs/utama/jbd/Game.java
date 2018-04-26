@@ -43,12 +43,21 @@ public class Game {
 
     // Get Player One
     public Player getPlayerOne() {
+        
         return playerOne;
     }
 
     // Get Player Two
     public Player getPlayerTwo() {
+
         return playerTwo;
+    }
+
+    // Clear console view
+    public static void clearConsole() {
+        for (int i = 0; i < 100; i++) {
+            System.out.println();
+        }
     }
 
 }
