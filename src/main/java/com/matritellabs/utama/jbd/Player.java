@@ -91,23 +91,23 @@ public class Player {
 
 
     // Place player ship
-    public void placeShip(Ship shipType, int horzPosition, int vertPosition, String orientation) {
+    public void placeShip(Ship shipType, Coordinate inputCoordinate, String orientation) {
 
-        if (orientation == "H") {
+        if (orientation.toUpperCase() == "H") {
             // Set ship in horizontal position
             for (int i = 0; i < shipType.shipSize ; i++) {
-                int xValue = horzPosition;
-                int yValue = vertPosition + i;
+                int xValue = inputCoordinate.getX();
+                int yValue = inputCoordinate.getY() + i;
                 int[] coordinateArray = {xValue,yValue};
 
                 playerTable.setTableField(xValue, yValue);
                 shipType.shipCoordinates.add(coordinateArray);
             }
-        } else if (orientation == "V") {
+        } else if (orientation.toUpperCase() == "V") {
             // Set ship in vertical position
             for (int i = 0; i < shipType.shipSize ; i++) {
-                int xValue = horzPosition + i;
-                int yValue = vertPosition;
+                int xValue = inputCoordinate.getX() + i;
+                int yValue = inputCoordinate.getY();
                 int[] coordinateArray = {xValue,yValue};
 
                 playerTable.setTableField(xValue, yValue);
@@ -116,5 +116,10 @@ public class Player {
         }
 
     }
+
+    public static void isPlacingPossible() {
+        
+    }
+
 
 }
