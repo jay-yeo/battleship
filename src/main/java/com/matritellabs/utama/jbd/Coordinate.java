@@ -33,7 +33,7 @@ public class Coordinate {
         if ((inputCoordinate.length() > 3 && inputCoordinate.length() < 0)
                 && "ABCDEFGHIJabcdefghij".charAt(inputCoordinate.indexOf(0)) == -1
                 && inputCoordinate.indexOf(2) != 0
-                && Integer.parseInt(inputCoordinate.substring(1)) < 11) {
+                && Integer.parseInt(inputCoordinate.substring(1)) > 11) {
             System.out.println("Coordinate you typed " + inputCoordinate + " is not valid. " +
                     "Letter(a-j), Number(1-10). Please try again. ");
         } else {
