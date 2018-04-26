@@ -4,8 +4,10 @@ import com.matritellabs.utama.helper.LineByLineReader;
 public class Main {
     public static void main(String[] args) {
 
-        // New Game
-        System.out.println("Starting new Battleship game...");
+        // Setup New Game
+        System.out.println("BATTLESHIP by torpedoTeam-2");
+        System.out.println("---------------------------");
+        System.out.println("Starting new Battleship game...\n");
         Game newGame = new Game();
 
         // Setup Players
@@ -20,10 +22,9 @@ public class Main {
         System.out.println("Player 2: (Enter Name)");
         LineByLineReader playerTwoNameInput = new LineByLineReader();
         String playerTwoName = playerTwoNameInput.readLineFromStdIn();
-
         newGame.setGamePlayer(2, playerTwoName);
 
-
+        newGame.clearConsole();
         System.out.println(newGame);
 
 //        System.out.println("Game View:");
