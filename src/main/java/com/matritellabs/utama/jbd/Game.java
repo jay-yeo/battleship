@@ -1,4 +1,5 @@
 package com.matritellabs.utama.jbd;
+import com.matritellabs.utama.helper.LineByLineReader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,30 @@ public class Game {
     public Player getPlayerTwo() {
 
         return playerTwo;
+    }
+
+    // Player ship placement method.
+    public void playerShipPlacement(Player gamePlayer) {
+        System.out.println("Admiral " + gamePlayer.getPlayerName() + " prepare your fleet!");
+        for (Ship ship : gamePlayer.getListOfShips()) {
+            // Place ship
+            System.out.println("Place your " + ship.shipType + " on the board!");
+
+            // Set x position
+            System.out.println("Set x position:");
+            LineByLineReader xInput = new LineByLineReader();
+            String xValue = xInput.readLineFromStdIn();
+
+            // Set y position
+            System.out.println("Set y position:");
+            LineByLineReader yInput = new LineByLineReader();
+            String yValue = yInput.readLineFromStdIn();
+
+            System.out.println(ship.shipType + " placed at " + xValue.toUpperCase() + yValue);
+            System.out.println("---------------------------");
+        }
+
+        System.out.println("All ships deployed to their positions!\n");
     }
 
     // Clear console view
