@@ -1,1 +1,3 @@
-Battleship Project by torpedoTeam-2
+# Battleship
+Battleship game coded in Java by torpedoTeam-2
+
