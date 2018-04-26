@@ -22,6 +22,7 @@ public class Main {
 
         // Place ships
         newGame.playerShipPlacement(newGame.getPlayerOne());
+        newGame.playerTurn(newGame.getPlayerOne());
 
 
         // Player 2
