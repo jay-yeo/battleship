@@ -1,6 +1,5 @@
 package com.matritellabs.utama.jbd;
 import com.matritellabs.utama.helper.LineByLineReader;
-import sun.tools.tree.WhileStatement;
 
 public class Main {
     public static void main(String[] args) {
@@ -50,6 +49,9 @@ public class Main {
 
             // Player two turn
             newGame.playerTurn(newGame.getPlayerTwo());
+
+            // Privacy line-feed
+            newGame.clearConsole();
 
         }
 

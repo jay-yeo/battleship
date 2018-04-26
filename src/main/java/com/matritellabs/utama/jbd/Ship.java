@@ -9,7 +9,7 @@ public class Ship {
     public int shipSize;
     public boolean shipSunk;
     public int shipMaxHits;
-    public List<int[]> shipCoordinates;
+    public List<Coordinate> shipCoordinates;
 
     public Ship(String shipPiece, int shipCapacity) {
         shipType = shipPiece;
@@ -27,5 +27,17 @@ public class Ship {
                 ", Sunk: " + shipSunk +
                 ", Damage: " + shipMaxHits +
                 "]";
+    }
+
+    // Get ship damage
+    public String getShipDamage() {
+        int shipDamage = ((shipSize - shipMaxHits) / shipSize ) * 100;
+        return shipDamage + "%";
+    }
+
+    
+    // Add damage to ship
+    public void shipHit() {
+        this.shipMaxHits--;
     }
 }
