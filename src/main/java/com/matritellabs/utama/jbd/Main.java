@@ -1,5 +1,6 @@
 package com.matritellabs.utama.jbd;
 import com.matritellabs.utama.helper.LineByLineReader;
+import sun.tools.tree.WhileStatement;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,19 +14,29 @@ public class Main {
         // Setup Players
 
         // Player 1
+        // Enter name
         System.out.println("Player 1: (Enter Name)");
         LineByLineReader playerOneNameInput = new LineByLineReader();
         String playerOneName = playerOneNameInput.readLineFromStdIn();
         newGame.setGamePlayer(1, playerOneName);
 
+        // Place ships
+        newGame.playerShipPlacement(newGame.getPlayerOne());
+        newGame.playerTurn(newGame.getPlayerOne());
+
+
         // Player 2
+        // Enter name
         System.out.println("Player 2: (Enter Name)");
         LineByLineReader playerTwoNameInput = new LineByLineReader();
         String playerTwoName = playerTwoNameInput.readLineFromStdIn();
         newGame.setGamePlayer(2, playerTwoName);
 
-        newGame.clearConsole();
-        System.out.println(newGame);
+        // Place ships
+        newGame.playerShipPlacement(newGame.getPlayerTwo());
+
+//        newGame.clearConsole():
+//        System.out.println(newGame);
 
 //        System.out.println("Game View:");
 //        Ship battleship = newGame.getPlayerOne().getShip("Battleship");

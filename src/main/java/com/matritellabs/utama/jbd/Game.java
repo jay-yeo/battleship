@@ -1,4 +1,5 @@
 package com.matritellabs.utama.jbd;
+import com.matritellabs.utama.helper.LineByLineReader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,62 @@ public class Game {
     public Player getPlayerTwo() {
 
         return playerTwo;
+    }
+
+    // Player ship placement method.
+    public void playerShipPlacement(Player gamePlayer) {
+        System.out.println("Admiral " + gamePlayer.getPlayerName() + " prepare your fleet!");
+        for (Ship ship : gamePlayer.getListOfShips()) {
+            // Place ship
+            System.out.println("Place your " + ship.shipType + " on the board!");
+
+            // Set x position
+            System.out.println("Set x position:");
+            LineByLineReader xInput = new LineByLineReader();
+            String xValue = xInput.readLineFromStdIn();
+
+            // Set y position
+            System.out.println("Set y position:");
+            LineByLineReader yInput = new LineByLineReader();
+            String yValue = yInput.readLineFromStdIn();
+
+            System.out.println(ship.shipType + " placed at " + xValue.toUpperCase() + yValue);
+            System.out.println("---------------------------");
+        }
+
+        System.out.println("All ships deployed to their positions!\n");
+    }
+
+    // Player Fire missile
+    public void playerFire(Player gamePlayer) {
+        // Fire missile!
+        System.out.println("You may fire when ready...");
+
+        // Set x position
+        System.out.println("Set target x coordinate");
+        LineByLineReader xInput = new LineByLineReader();
+        String xValue = xInput.readLineFromStdIn();
+
+        // Set y position
+        System.out.println("Set target y coordinate:");
+        LineByLineReader yInput = new LineByLineReader();
+        String yValue = yInput.readLineFromStdIn();
+
+        System.out.println("Rocket fired at " + xValue.toUpperCase() + yValue + "\n");
+    }
+
+    // Player turn operations method
+    public void playerTurn(Player gamePlayer) {
+        System.out.println("Admiral " + gamePlayer.getPlayerName() + ", it's your turn to fire!");
+        System.out.println("---------------------------");
+
+        System.out.println("Your Ships: ");
+        gamePlayer.getPlayerTable().printTable();
+
+        System.out.println("Enemy Ships: ");
+        gamePlayer.getOpponentTable().printTable();
+
+        playerFire(gamePlayer);
     }
 
     // Clear console view
