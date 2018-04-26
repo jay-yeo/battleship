@@ -93,32 +93,66 @@ public class Player {
     // Place player ship
     public void placeShip(Ship shipType, Coordinate inputCoordinate, String orientation) {
 
-        if (orientation.toUpperCase() == "H") {
+        if (orientation.toUpperCase().equals("H")) {
             // Set ship in horizontal position
             for (int i = 0; i < shipType.shipSize ; i++) {
                 int xValue = inputCoordinate.getX();
                 int yValue = inputCoordinate.getY() + i;
                 int[] coordinateArray = {xValue,yValue};
+                if (isPlacingPossibleHorizontally(shipType, inputCoordinate)){
+                    playerTable.setTableField(xValue, yValue);
+                    shipType.shipCoordinates.add(coordinateArray);
+                }
 
-                playerTable.setTableField(xValue, yValue);
-                shipType.shipCoordinates.add(coordinateArray);
             }
-        } else if (orientation.toUpperCase() == "V") {
+        } else if (orientation.toUpperCase().equals("V")) {
             // Set ship in vertical position
             for (int i = 0; i < shipType.shipSize ; i++) {
                 int xValue = inputCoordinate.getX() + i;
                 int yValue = inputCoordinate.getY();
                 int[] coordinateArray = {xValue,yValue};
+                if (isPlacingPossibleVertically(shipType, inputCoordinate)){
+                    playerTable.setTableField(xValue, yValue);
+                    shipType.shipCoordinates.add(coordinateArray);
+                }
 
-                playerTable.setTableField(xValue, yValue);
-                shipType.shipCoordinates.add(coordinateArray);
             }
         }
 
     }
 
-    public static void isPlacingPossible() {
-        
+    public  boolean isPlacingPossibleHorizontally(Ship shipType, Coordinate inputCoordinate) {
+        int counter = 0;
+        if ((inputCoordinate.getX() + 1) + shipType.shipSize + 1 <= playerTable.getTableSize()) {
+           for (int i = inputCoordinate.getX(); i < shipType.shipSize; i++) {
+               if (playerTable.tableArray[i][inputCoordinate.getY() - 1] == 0){
+                   counter++;
+               }
+           }
+           if (counter == shipType.shipSize) {
+               return true;
+           }
+        }else {
+            return false;
+        }
+        return false;
+    }
+
+    public  boolean isPlacingPossibleVertically(Ship shipType, Coordinate inputCoordinate) {
+        int counter = 0;
+        if ((inputCoordinate.getY() + 1) + shipType.shipSize + 1 <= playerTable.getTableSize()) {
+            for (int i = inputCoordinate.getY(); i < shipType.shipSize; i++) {
+                if (playerTable.tableArray[inputCoordinate.getX() - 1][i] == 0){
+                    counter++;
+                }
+            }
+            if (counter == shipType.shipSize) {
+                return true;
+            }
+        }else {
+            return false;
+        }
+        return false;
     }
 
 

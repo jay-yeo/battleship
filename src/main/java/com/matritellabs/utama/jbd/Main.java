@@ -19,8 +19,8 @@ public class Main {
         Ship carrier = newGame.getPlayerOne().getShip("Carrier");
 
 
-        newGame.getPlayerOne().placeShip(battleship,0,0, "H");
-        newGame.getPlayerOne().placeShip(carrier,5,0, "V");
+//        newGame.getPlayerOne().placeShip(battleship,0,0, "H");
+//        newGame.getPlayerOne().placeShip(carrier,5,0, "V");
         newGame.getPlayerOne().getPlayerTable().printTable();
 
         System.out.println(newGame.getPlayerOne().getShip("Battleship"));
