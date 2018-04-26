@@ -53,26 +53,7 @@ public class Main {
 
         }
 
-
-//        System.out.println(newGame);
-
-//        System.out.println("Game View:");
-//        Ship battleship = newGame.getPlayerOne().getShip("Battleship");
-//        Ship carrier = newGame.getPlayerOne().getShip("Carrier");
-//
-//
-//        newGame.getPlayerOne().placeShip(battleship,0,0, "H");
-//
-//
-//        newGame.getPlayerOne().placeShip(carrier,5,0, "V");
-//        newGame.getPlayerOne().getPlayerTable().printTable();
-//
-//        System.out.println(newGame.getPlayerOne().getShip("Battleship"));
-
-
-
-
-
+        System.out.println("GAME OVER!");
 
     }
 }
