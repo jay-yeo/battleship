@@ -125,7 +125,7 @@ public class Player {
     public  boolean isPlacingPossibleHorizontally(Ship shipType, Coordinate inputCoordinate) {
         int counter = 0;
         if (inputCoordinate.getY() + shipType.shipSize  < playerTable.getTableSize()
-                && playerTable.tableArray[inputCoordinate.getY()][inputCoordinate.getX()] == 0) {
+                && playerTable.tableArray[inputCoordinate.getX()][inputCoordinate.getY()] == 0) {
             for (int i = 0; i < shipType.shipSize; i++) {
                if (playerTable.tableArray[inputCoordinate.getX()][inputCoordinate.getY() + i] == 0){
                    counter++;
@@ -143,7 +143,7 @@ public class Player {
     public  boolean isPlacingPossibleVertically(Ship shipType, Coordinate inputCoordinate) {
         int counter = 0;
         if (inputCoordinate.getX() + shipType.shipSize  < playerTable.getTableSize()
-                && playerTable.tableArray[inputCoordinate.getY()][inputCoordinate.getX()] == 0) {
+                && playerTable.tableArray[inputCoordinate.getX()][inputCoordinate.getY()] == 0) {
             for (int i = 0; i < shipType.shipSize; i++) {
                 if (playerTable.tableArray[inputCoordinate.getX() + i][inputCoordinate.getY()] == 0){
                     counter++;
