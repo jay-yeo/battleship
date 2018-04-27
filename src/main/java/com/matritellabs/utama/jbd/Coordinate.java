@@ -28,50 +28,37 @@ public class Coordinate {
         this.y = y;
     }
 
-    //Decode coordinate like "A1" --> 00
-    public static void decodeCoordinate(String inputCoordinate) {
-        if ((inputCoordinate.length() > 3 && inputCoordinate.length() < 0)
-                && "ABCDEFGHIJabcdefghij".charAt(inputCoordinate.indexOf(0)) == -1
-                && inputCoordinate.indexOf(2) != 0
-                && Integer.parseInt(inputCoordinate.substring(1)) > 11) {
-            System.out.println("Coordinate you typed " + inputCoordinate + " is not valid. " +
-                    "Letter(a-j), Number(1-10). Please try again. ");
-        } else {
+    //Decode coordinate like "A" --> 0
+    public static int decodeCoordinate(String inputCoordinate) {
+        inputCoordinate = inputCoordinate.toUpperCase();
+        if (inputCoordinate.charAt(0) != -1){
             switch (inputCoordinate.charAt(0)) {
-                case ('A' | 'a'):
-                    new Coordinate(0, Character.getNumericValue(inputCoordinate.charAt(1)) - 1);
-                    break;
-                case ('B' | 'b'):
-                    new Coordinate(1, Character.getNumericValue(inputCoordinate.charAt(1)) - 1);
-                    break;
-                case ('C' | 'c'):
-                    new Coordinate(2, Character.getNumericValue(inputCoordinate.charAt(1)) - 1);
-                    break;
-                case ('D' | 'd'):
-                    new Coordinate(3, Character.getNumericValue(inputCoordinate.charAt(1)) - 1);
-                    break;
-                case ('E' | 'e'):
-                    new Coordinate(4, Character.getNumericValue(inputCoordinate.charAt(1)) - 1);
-                    break;
-                case ('F' | 'f'):
-                    new Coordinate(5, Character.getNumericValue(inputCoordinate.charAt(1)) - 1);
-                    break;
-                case ('G' | 'g'):
-                    new Coordinate(6, Character.getNumericValue(inputCoordinate.charAt(1)) - 1);
-                    break;
-                case ('H' | 'h'):
-                    new Coordinate(7, Character.getNumericValue(inputCoordinate.charAt(1)) - 1);
-                    break;
-                case ('I' | 'i'):
-                    new Coordinate(8, Character.getNumericValue(inputCoordinate.charAt(1)) - 1);
-                    break;
-                case ('J' | 'j'):
-                    new Coordinate(9, Character.getNumericValue(inputCoordinate.charAt(1)) - 1);
-                    break;
+                case ('A'):
+                    return 0;
+                case ('B'):
+                    return 1;
+                case ('C'):
+                    return 2;
+                case ('D'):
+                    return 3;
+                case ('E'):
+                    return 4;
+                case ('F'):
+                    return 5;
+                case ('G'):
+                    return 6;
+                case ('H'):
+                    return 7;
+                case ('I'):
+                    return 8;
+                case ('J'):
+                    return 9;
             }
+        } else {
+            return -1;
         }
-
+        return -1;
     }
-
-
 }
+
+
