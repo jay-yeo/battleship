@@ -13,37 +13,49 @@ public class Main {
         // Setup Players
 
         // Player 1
+        // Enter name
         System.out.println("Player 1: (Enter Name)");
         LineByLineReader playerOneNameInput = new LineByLineReader();
         String playerOneName = playerOneNameInput.readLineFromStdIn();
         newGame.setGamePlayer(1, playerOneName);
 
+        // Place ships
+        newGame.playerShipPlacement(newGame.getPlayerOne());
+
+        // Privacy line-feed
+        newGame.clearConsole();
+
         // Player 2
+        // Enter name
         System.out.println("Player 2: (Enter Name)");
         LineByLineReader playerTwoNameInput = new LineByLineReader();
         String playerTwoName = playerTwoNameInput.readLineFromStdIn();
         newGame.setGamePlayer(2, playerTwoName);
 
+        // Place ships
+        newGame.playerShipPlacement(newGame.getPlayerTwo());
+
+        // Privacy line-feed
         newGame.clearConsole();
-        System.out.println(newGame);
 
-        System.out.println("Game View:");
-        Ship battleship = newGame.getPlayerOne().getShip("Battleship");
-        Ship carrier = newGame.getPlayerOne().getShip("Carrier");
+        // Play game until either player has zero ships remaining
+        while (newGame.getPlayerOne().getListOfShips().size() != 0 || newGame.getPlayerTwo().getListOfShips().size() != 0) {
 
+            // Player one turn
+            newGame.playerTurn(newGame.getPlayerOne());
 
-        newGame.getPlayerOne().placeShip(battleship, new Coordinate(5 ,5), "H");
+            // Privacy line-feed
+            newGame.clearConsole();
 
+            // Player two turn
+            newGame.playerTurn(newGame.getPlayerTwo());
 
-        newGame.getPlayerOne().placeShip(carrier,new Coordinate(1 ,1), "V");
-        newGame.getPlayerOne().getPlayerTable().printTable();
+            // Privacy line-feed
+            newGame.clearConsole();
 
-        System.out.println(newGame.getPlayerOne().getShip("Battleship"));
+        }
 
-
-
-
-
+        System.out.println("GAME OVER!");
 
     }
 }
