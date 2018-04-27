@@ -96,23 +96,24 @@ public class Player {
         if (orientation.toUpperCase().equals("H")) {
             // Set ship in horizontal position
             if (isPlacingPossibleHorizontally(shipType, inputCoordinate)){
-            for (int i = 0; i < shipType.shipSize ; i++) {
-                int xValue = inputCoordinate.getX();
-                int yValue = inputCoordinate.getY() + i;
-                int[] coordinateArray = {xValue,yValue};
+                for (int i = 0; i < shipType.shipSize ; i++) {
+                    int xValue = inputCoordinate.getX();
+                    int yValue = inputCoordinate.getY() + i;
+                    int[] coordinateArray = {xValue,yValue};
 
-                    playerTable.setTableField(xValue, yValue);
-                    shipType.shipCoordinates.add(coordinateArray);
+                        playerTable.setTableField(xValue, yValue);
+                        shipType.shipCoordinates.add(coordinateArray);
+                }
             }
-            }
-        } else if (orientation.toUpperCase().equals("V")) {
+        }
+        else if (orientation.toUpperCase().equals("V")) {
             // Set ship in vertical position
             if (isPlacingPossibleVertically(shipType, inputCoordinate)){
 
                 for (int i = 0; i < shipType.shipSize ; i++) {
-                int xValue = inputCoordinate.getX() + i;
-                int yValue = inputCoordinate.getY();
-                int[] coordinateArray = {xValue,yValue};
+                    int xValue = inputCoordinate.getX() + i;
+                    int yValue = inputCoordinate.getY();
+                    int[] coordinateArray = {xValue,yValue};
                     playerTable.setTableField(xValue, yValue);
                     shipType.shipCoordinates.add(coordinateArray);
                 }
