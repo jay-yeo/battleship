@@ -66,6 +66,14 @@ public class Game {
             LineByLineReader yInput = new LineByLineReader();
             String yValue = yInput.readLineFromStdIn();
 
+            // Set orientationyValue
+            System.out.println("Set orientation (H or V):");
+            LineByLineReader orientationInput = new LineByLineReader();
+            String orientation = orientationInput.readLineFromStdIn();
+
+            // Set ship position
+            gamePlayer.placeShip(ship, new Coordinate(Integer.parseInt(xValue),Integer.parseInt(yValue)),orientation.toUpperCase());
+
             System.out.println(ship.shipType + " placed at " + xValue.toUpperCase() + yValue);
             System.out.println("---------------------------");
         }
