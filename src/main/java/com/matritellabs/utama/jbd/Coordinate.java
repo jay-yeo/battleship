@@ -5,10 +5,16 @@ public class Coordinate {
     private int x;
     private int y;
 
-    //Constructor
+    //Constructor with Integer coordinates
     public Coordinate(int xCoordinate, int yCoordinate) {
         x = xCoordinate;
         y = yCoordinate;
+    }
+
+    // Constructor with String coordinates
+    public Coordinate(String xCoordinate, String yCoordinate) {
+        y = decodeCoordinate(xCoordinate);
+        x = Integer.parseInt(yCoordinate);
     }
 
 
@@ -29,7 +35,7 @@ public class Coordinate {
     }
 
     //Decode coordinate like "A" --> 0
-    public static int decodeCoordinate(String inputCoordinate) {
+    public int decodeCoordinate(String inputCoordinate) {
         inputCoordinate = inputCoordinate.toUpperCase();
             switch (inputCoordinate) {
                 case ("A"):
