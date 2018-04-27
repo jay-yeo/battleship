@@ -28,4 +28,16 @@ public class Ship {
                 ", Damage: " + shipMaxHits +
                 "]";
     }
+
+    // Get ship damage
+    public String getShipDamage() {
+        int shipDamage = ((shipSize - shipMaxHits) / shipSize ) * 100;
+        return shipDamage + "%";
+    }
+
+    
+    // Add damage to ship
+    public void shipHit() {
+        this.shipMaxHits--;
+    }
 }

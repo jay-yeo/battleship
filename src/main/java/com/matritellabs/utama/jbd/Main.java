@@ -1,11 +1,13 @@
 package com.matritellabs.utama.jbd;
-
 import com.matritellabs.utama.helper.LineByLineReader;
 
 public class Main {
     public static void main(String[] args) {
 
-        // New Game
+        // Setup New Game
+        System.out.println("BATTLESHIP by torpedoTeam-2");
+        System.out.println("---------------------------");
+        System.out.println("Starting new Battleship game...\n");
         Game newGame = new Game();
 
         // Setup Players
@@ -22,7 +24,7 @@ public class Main {
         String playerTwoName = playerTwoNameInput.readLineFromStdIn();
         newGame.setGamePlayer(2, playerTwoName);
 
-//        newGame.clearConsole();
+        newGame.clearConsole();
         System.out.println(newGame);
 
         System.out.println("Game View:");
@@ -30,13 +32,10 @@ public class Main {
         Ship carrier = newGame.getPlayerOne().getShip("Carrier");
 
 
-        newGame.getPlayerOne().placeShip(battleship,new Coordinate(2,2), "H");
+        newGame.getPlayerOne().placeShip(battleship, new Coordinate(5 ,5), "H");
 
 
-        newGame.getPlayerOne().placeShip(carrier,new Coordinate(4,5), "V");
-        newGame.getPlayerOne().placeShip(carrier,new Coordinate(8,3), "V");
-        newGame.getPlayerOne().placeShip(carrier,new Coordinate(8,1), "V");
-        newGame.getPlayerOne().placeShip(carrier,new Coordinate(3,8), "H");
+        newGame.getPlayerOne().placeShip(carrier,new Coordinate(1 ,1), "V");
         newGame.getPlayerOne().getPlayerTable().printTable();
 
         System.out.println(newGame.getPlayerOne().getShip("Battleship"));
