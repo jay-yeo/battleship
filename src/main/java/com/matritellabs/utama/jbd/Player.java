@@ -99,10 +99,10 @@ public class Player {
                 for (int i = 0; i < shipType.shipSize ; i++) {
                     int xValue = inputCoordinate.getX();
                     int yValue = inputCoordinate.getY() + i;
-                    int[] coordinateArray = {xValue,yValue};
+//                    int[] coordinateArray = {xValue,yValue};
 
                         playerTable.setTableField(xValue, yValue);
-                        shipType.shipCoordinates.add(coordinateArray);
+                        shipType.shipCoordinates.add(new Coordinate(xValue, yValue));
                 }
             }
         }
@@ -113,9 +113,9 @@ public class Player {
                 for (int i = 0; i < shipType.shipSize ; i++) {
                     int xValue = inputCoordinate.getX() + i;
                     int yValue = inputCoordinate.getY();
-                    int[] coordinateArray = {xValue,yValue};
+//                    int[] coordinateArray = {xValue,yValue};
                     playerTable.setTableField(xValue, yValue);
-                    shipType.shipCoordinates.add(coordinateArray);
+                    shipType.shipCoordinates.add(new Coordinate(xValue, yValue));
                 }
             }
         }
@@ -157,6 +157,8 @@ public class Player {
         }
         return false;
     }
+
+
 
 
 }
