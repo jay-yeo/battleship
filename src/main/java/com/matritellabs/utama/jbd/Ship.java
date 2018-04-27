@@ -9,7 +9,7 @@ public class Ship {
     public int shipSize;
     public boolean shipSunk;
     public int shipMaxHits;
-    public List<Coordinate> shipCoordinates;
+    public List<int[]> shipCoordinates;
 
     public Ship(String shipPiece, int shipCapacity) {
         shipType = shipPiece;
