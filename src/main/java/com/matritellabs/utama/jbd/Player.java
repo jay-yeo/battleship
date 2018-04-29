@@ -160,7 +160,36 @@ public class Player {
 
 
 
-    
-
-
+    public void fire(Coordinate coordinateToFire, Player player1, Player player2) {
+        if (player1.opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] == 0) {
+            if (player2.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] == 0) {
+                player1.opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 9;
+                player2.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 9;
+            }
+            else if (player2.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] == 1) {
+                player1.opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 8;
+                player2.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 8;
+                for (Ship ship : player2.listOfShips) {
+                    for (Coordinate coordinate : ship.shipCoordinates) {
+                        if (coordinate.getX() == coordinateToFire.getX() && coordinate.getY() == coordinateToFire.getY()) {
+                            ship.shipMaxHits -= 1;
+                            if (ship.shipMaxHits == 0) {
+                                ship.shipSunk = true;
+                                System.out.println(" hit and sunk");
+                            }else {
+                                System.out.println("Nice, that's a hit!");
+                            }
+                        }
+                    }
+                }
+            }
+        }else {
+            System.out.println("You already fired here, try again!");
+        }
+    }
 }
+
+
+
+
+
