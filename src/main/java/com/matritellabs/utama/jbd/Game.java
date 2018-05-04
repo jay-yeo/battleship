@@ -105,20 +105,24 @@ public class Game {
                     if (!checkValidOrientation(orientation)) {
                         System.out.println("\nInvalid orientation. Please use 'V' for vertical and 'H' for horizontal and try again...\n");
                     }
+
                 }
 
                 // Set ship position
-                gamePlayer.placeShip(ship, new Coordinate(xValue, yValue), orientation.toUpperCase());
-                System.out.println("\n" + ship.shipType.toUpperCase() + " placed at " + xValue.toUpperCase() + yValue);
+                if (gamePlayer.placeShip(ship, new Coordinate(xValue, yValue), orientation.toUpperCase())) {
+                    System.out.println("\n" + ship.shipType.toUpperCase() + " placed at " + xValue.toUpperCase() + yValue);
 
-            }
-
+                }else {
+                    System.out.println("Try again!" + "\n");
+                }
+            gamePlayer.getPlayerTable().printTable();
             System.out.println("---------------------------");
         }
 
         // Placing ships finished
         System.out.println("\nADMIRAL " + gamePlayer.getPlayerName().toUpperCase() + ":" );
         System.out.println("All ships deployed to their positions!\n");
+    }
     }
 
     // Player Fire missile

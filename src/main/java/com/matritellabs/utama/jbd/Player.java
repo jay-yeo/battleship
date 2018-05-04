@@ -103,8 +103,8 @@ public class Player {
 
 
     // Place player ship
-    public void placeShip(Ship shipType, Coordinate inputCoordinate, String orientation) {
-
+    public boolean placeShip(Ship shipType, Coordinate inputCoordinate, String orientation) {
+        boolean isSuccesful = false;
         if (orientation.toUpperCase().equals("H")) {
             // Set ship in horizontal position
             if (isPlacingPossibleHorizontally(shipType, inputCoordinate)){
@@ -114,6 +114,7 @@ public class Player {
 
                     playerTable.setTableField(xValue, yValue);
                     shipType.shipCoordinates.add(new Coordinate(xValue, yValue));
+                    isSuccesful = true;
                 }
             }
         }
@@ -127,10 +128,11 @@ public class Player {
 
                     playerTable.setTableField(xValue, yValue);
                     shipType.shipCoordinates.add(new Coordinate(xValue, yValue));
+                    isSuccesful = true;
                 }
             }
         }
-
+        return isSuccesful;
     }
 
     public  boolean isPlacingPossibleHorizontally(Ship shipType, Coordinate inputCoordinate) {

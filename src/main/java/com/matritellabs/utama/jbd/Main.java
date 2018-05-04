@@ -29,6 +29,8 @@ public class Main {
         LineByLineReader playerOneNameInput = new LineByLineReader();
         String playerOneName = playerOneNameInput.readLineFromStdIn();
         newGame.setGamePlayer(1, playerOneName);
+        newGame.getPlayerOne().getPlayerTable().printTable();
+        System.out.println("");
 
         // Place ships
         newGame.playerShipPlacement(newGame.getPlayerOne());
