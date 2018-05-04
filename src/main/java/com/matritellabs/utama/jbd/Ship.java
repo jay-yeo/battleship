@@ -31,7 +31,7 @@ public class Ship {
 
     // Get ship damage
     public String getShipDamage() {
-        int shipDamage = ((shipSize - shipMaxHits) / shipSize ) * 100;
+        int shipDamage = (shipMaxHits / shipSize) * 100;
         return shipDamage + "%";
     }
 

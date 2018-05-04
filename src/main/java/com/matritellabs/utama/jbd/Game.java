@@ -185,6 +185,7 @@ public class Game {
         System.out.println("---------------------------");
 
         System.out.println("Your Ships: " + "\n");
+        gamePlayer.getShipDamageReport();
         gamePlayer.getPlayerTable().printTable();
 
         System.out.println("\nEnemy Ships: " + "\n");

@@ -101,6 +101,14 @@ public class Player {
         return null;
     }
 
+    // Get ship damage report
+    public void getShipDamageReport() {
+        for (Ship ship : listOfShips) {
+            System.out.println(ship.shipType.toUpperCase() + " " + ship.getShipDamage());
+        }
+        System.out.println("\n");
+    }
+
 
     // Place player ship
     public boolean placeShip(Ship shipType, Coordinate inputCoordinate, String orientation) {
