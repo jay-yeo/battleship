@@ -190,6 +190,10 @@ public class Player {
                             if (ship.shipMaxHits == 0) {
                                 ship.shipSunk = true;
                                 playerOpponent.sunkenShip.add(ship);
+                                for (Coordinate coordinate1 : ship.shipCoordinates) {
+                                    opponentTable.tableArray[coordinate1.getX()][coordinate1.getY()] = 7;
+                                    playerOpponent.getPlayerTable().tableArray[coordinate1.getX()][coordinate1.getY()] = 7;
+                                }
                                 System.out.println(" hit and sunk");
                             }else {
                                 System.out.println("Nice, that's a hit!");
