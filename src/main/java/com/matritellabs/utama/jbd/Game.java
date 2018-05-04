@@ -147,16 +147,16 @@ public class Game {
 
     //check valid hits by letter
     public boolean checkValidLetter(String inputLetter) {
-        if (inputLetter.toUpperCase().charAt(0) != 'A' &&
-                inputLetter.charAt(0) != 'B' &&
-                inputLetter.charAt(0) != 'C' &&
-                inputLetter.charAt(0) != 'D' &&
-                inputLetter.charAt(0) != 'E' &&
-                inputLetter.charAt(0) != 'F' &&
-                inputLetter.charAt(0) != 'G' &&
-                inputLetter.charAt(0) != 'H' &&
-                inputLetter.charAt(0) != 'I' &&
-                inputLetter.charAt(0) != 'J' ) {
+        if (inputLetter.toUpperCase().equals("A") ||
+                inputLetter.toUpperCase().equals("B") ||
+                inputLetter.toUpperCase().equals("C") ||
+                inputLetter.toUpperCase().equals("D") ||
+                inputLetter.toUpperCase().equals("E") ||
+                inputLetter.toUpperCase().equals("F") ||
+                inputLetter.toUpperCase().equals("G") ||
+                inputLetter.toUpperCase().equals("H") ||
+                inputLetter.toUpperCase().equals("I") ||
+                inputLetter.toUpperCase().equals("J") ) {
             return true;
         } else {
             return false;
@@ -165,16 +165,16 @@ public class Game {
 
     //check valid hits by number
     public boolean checkValidNumber(String inputNumber) {
-        if (inputNumber.charAt(0) != '1' &&
-                inputNumber.charAt(0) != '2' &&
-                inputNumber.charAt(0) != '3' &&
-                inputNumber.charAt(0) != '4' &&
-                inputNumber.charAt(0) != '5' &&
-                inputNumber.charAt(0) != '6' &&
-                inputNumber.charAt(0) != '7' &&
-                inputNumber.charAt(0) != '8' &&
-                inputNumber.charAt(0) != '9' &&
-                (inputNumber.charAt(0) + inputNumber.charAt(1) + "" )!= "10" ) {
+        if (inputNumber.equals("1") ||
+                inputNumber.equals("2") ||
+                inputNumber.equals("3") ||
+                inputNumber.equals("4") ||
+                inputNumber.equals("5") ||
+                inputNumber.equals("6") ||
+                inputNumber.equals("7") ||
+                inputNumber.equals("8") ||
+                inputNumber.equals("9") ||
+                inputNumber.equals("10") ) {
             return true;
         } else {
             return false;
