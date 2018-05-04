@@ -50,15 +50,22 @@ public class Main {
         newGame.clearConsole();
 
         // Play game until either player has zero ships remaining
-        while (newGame.getPlayerOne().getListOfShips().size() != 0 || newGame.getPlayerTwo().getListOfShips().size() != 0) {
+        while (newGame.getPlayerOne().getListOfSunkenShips().size() != 6 || newGame.getPlayerTwo().getListOfSunkenShips().size() != 6) {
+
+            if (newGame.getPlayerOne().getListOfSunkenShips().size() == 5 || newGame.getPlayerTwo().getListOfSunkenShips().size() == 5) {
+              break;
+            }
 
             // Player one turn
+            System.out.println(newGame.getPlayerOne().getListOfSunkenShips());
             newGame.playerTurn(newGame.getPlayerOne());
 
             // Privacy line-feed
             newGame.clearConsole();
 
+
             // Player two turn
+            System.out.println(newGame.getPlayerTwo().getListOfSunkenShips());
             newGame.playerTurn(newGame.getPlayerTwo());
 
             // Privacy line-feed
