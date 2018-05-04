@@ -135,15 +135,42 @@ public class Game {
         System.out.println("Set target x coordinate");
         LineByLineReader xInput = new LineByLineReader();
         String xValue = xInput.readLineFromStdIn();
+        while (!checkValidLetter(xValue)) {
+            System.out.println("Try again: A-J");
+            xValue = xInput.readLineFromStdIn();
+        }
 
         // Set y position
         System.out.println("Set target y coordinate:");
         LineByLineReader yInput = new LineByLineReader();
         String yValue = yInput.readLineFromStdIn();
-
+        while (!checkValidNumber(yValue)) {
+            System.out.println("Try again: 1-10");
+            yValue = yInput.readLineFromStdIn();
+        }
         // Create coordinate object for firing missile
         Coordinate fireCoordinate = new Coordinate(xValue, yValue);
+        while (gamePlayer.getOpponentTable().tableArray[fireCoordinate.getX()][fireCoordinate.getY()] != 0) {
+            System.out.println("You already fired here, try again!" + "\n");
+            // Set x position
+            System.out.println("Set target x coordinate");
+            xInput = new LineByLineReader();
+            xValue = xInput.readLineFromStdIn();
+            while (!checkValidLetter(xValue)) {
+                System.out.println("Try again: A-J");
+                xValue = xInput.readLineFromStdIn();
+            }
 
+            // Set y position
+            System.out.println("Set target y coordinate:");
+            yInput = new LineByLineReader();
+            yValue = yInput.readLineFromStdIn();
+            while (!checkValidNumber(yValue)) {
+                System.out.println("Try again: 1-10");
+                yValue = yInput.readLineFromStdIn();
+            }
+            fireCoordinate = new Coordinate(xValue, yValue);
+        }
         // Fire missile method
         gamePlayer.fire(fireCoordinate, getPlayerOpponent(gamePlayer));
 
