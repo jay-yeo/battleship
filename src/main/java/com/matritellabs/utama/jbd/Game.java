@@ -53,12 +53,15 @@ public class Game {
 
     // Player ship placement method.
     public void playerShipPlacement(Player gamePlayer) {
-        System.out.println("Admiral " + gamePlayer.getPlayerName() + " prepare your fleet!");
+
+        System.out.println("ADMIRAL " + gamePlayer.getPlayerName().toUpperCase() + " prepare your fleet!");
+        System.out.println("---------------------------");
+
         for (Ship ship : gamePlayer.getListOfShips()) {
 
             while (ship.shipCoordinates.size() == 0) {
                 // Place ship
-                System.out.println("\nPlace your " + ship.shipType + " on the board!");
+                System.out.println("Place your " + ship.shipType.toUpperCase() + " on the board!");
 
                 // X and Y values
                 String xValue = "";
@@ -66,54 +69,55 @@ public class Game {
                 String orientation = "";
 
                 // Set x position
-                while (checkValidLetter(xValue)) {
+                while (checkValidLetter(xValue) == false) {
                     // Get user input
-                    System.out.println("Set x position:");
+                    System.out.println("\nSet X position:");
                     LineByLineReader xInput = new LineByLineReader();
                     xValue = xInput.readLineFromStdIn();
 
                     // Error message
                     if (!checkValidLetter(xValue)) {
-                        System.out.println("\nInvalid coordinates. Please try again!\n");
+                        System.out.println("\nInvalid x position. Please use letters [A-J] and try again...\n");
                     }
                 }
 
                 // Set y position
-                while (checkValidNumber(yValue)) {
+                while (checkValidNumber(yValue) == false) {
                     // Get user input
-                    System.out.println("Set y position:");
+                    System.out.println("\nSet Y position:");
                     LineByLineReader yInput = new LineByLineReader();
                     yValue = yInput.readLineFromStdIn();
 
                     // Error message
                     if (!checkValidNumber(yValue)) {
-                        System.out.println("\nInvalid coordinates. Please try again!\n");
+                        System.out.println("\nInvalid y position. Please use numbers [1-10] and try again...\n");
                     }
                 }
 
                 // Set orientation position
-                while (checkValidOrientation(orientation)) {
+                while (checkValidOrientation(orientation) == false) {
                     // Get user input
-                    System.out.println("Set orientation (H or V):");
+                    System.out.println("\nSet orientation (H or V):");
                     LineByLineReader orientationInput = new LineByLineReader();
                     orientation = orientationInput.readLineFromStdIn();
 
                     // Error message
                     if (!checkValidOrientation(orientation)) {
-                        System.out.println("\nInvalid orientation. Please use 'V' for vertical and 'H' for horizontal.\n");
+                        System.out.println("\nInvalid orientation. Please use 'V' for vertical and 'H' for horizontal and try again...\n");
                     }
                 }
 
                 // Set ship position
                 gamePlayer.placeShip(ship, new Coordinate(xValue, yValue), orientation.toUpperCase());
-                System.out.println(ship.shipType + " placed at " + xValue.toUpperCase() + yValue);
+                System.out.println("\n" + ship.shipType.toUpperCase() + " placed at " + xValue.toUpperCase() + yValue);
 
             }
-
 
             System.out.println("---------------------------");
         }
 
+        // Placing ships finished
+        System.out.println("\nADMIRAL " + gamePlayer.getPlayerName().toUpperCase() + ":" );
         System.out.println("All ships deployed to their positions!\n");
     }
 
