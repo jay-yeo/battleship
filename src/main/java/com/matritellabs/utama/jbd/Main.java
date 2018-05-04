@@ -34,7 +34,7 @@ public class Main {
 
         // Place ships
         newGame.playerShipPlacement(newGame.getPlayerOne());
-        System.out.println(playerOneName + ", press enter to continue!");
+        System.out.println("\n" + playerOneName + ", press enter to continue!");
         LineByLineReader enter = new LineByLineReader();
         String waitForEnter = enter.readLineFromStdIn();
 
@@ -54,12 +54,12 @@ public class Main {
         // Place ships
         newGame.playerShipPlacement(newGame.getPlayerTwo());
 
-        System.out.println(playerTwoName + ", press enter to continue!");
+        System.out.println("\n" + playerTwoName + ", press enter to continue!");
         waitForEnter = enter.readLineFromStdIn();
 
         // Privacy line-feed
         newGame.clearConsole();
-        System.out.println(playerOneName + ", press enter to continue!");
+        System.out.println("\n" + playerOneName.toUpperCase() + ", press enter to continue!");
         waitForEnter = enter.readLineFromStdIn();
 
         // Play game until either player has zero ships remaining
@@ -73,12 +73,12 @@ public class Main {
             if (newGame.getPlayerTwo().getListOfSunkenShips().size() == 5) {
                 break;
             }
-            System.out.println(playerOneName + ", press enter to continue!");
+            System.out.println("\n" + playerOneName.toUpperCase() + ", press enter to continue!");
             waitForEnter = enter.readLineFromStdIn();
 
             // Privacy line-feed
             newGame.clearConsole();
-            System.out.println(playerTwoName + ", press enter to continue!");
+            System.out.println("\n" + playerTwoName.toUpperCase() + ", press enter to continue!");
             waitForEnter = enter.readLineFromStdIn();
 
             // Player two turn
@@ -88,12 +88,12 @@ public class Main {
             if (newGame.getPlayerOne().getListOfSunkenShips().size() == 5) {
                 break;
             }
-            System.out.println(playerTwoName + ", press enter to continue!");
+            System.out.println("\n" + playerTwoName.toUpperCase() + ", press enter to continue!");
             waitForEnter = enter.readLineFromStdIn();
 
             // Privacy line-feed
             newGame.clearConsole();
-            System.out.println(playerOneName + ", press enter to continue!");
+            System.out.println("\n" + playerOneName.toUpperCase() + ", press enter to continue!");
             waitForEnter = enter.readLineFromStdIn();
 
         }
