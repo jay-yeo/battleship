@@ -1,6 +1,8 @@
 package com.matritellabs.utama.jbd;
 import com.matritellabs.utama.helper.LineByLineReader;
 
+import java.awt.*;
+
 public class Game {
     private String gameName;
     private Player playerOne;
@@ -72,6 +74,7 @@ public class Game {
                 System.out.println("Set orientation (H or V):");
                 LineByLineReader orientationInput = new LineByLineReader();
                 String orientation = orientationInput.readLineFromStdIn();
+
 
                 // Set ship position
                 gamePlayer.placeShip(ship, new Coordinate(xValue, yValue), orientation.toUpperCase());
