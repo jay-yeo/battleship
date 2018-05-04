@@ -26,10 +26,23 @@ public class Table {
 
     // Print Table Method
     public void printTable() {
-        for (int i = 0; i < tableArray.length ; i++) {
-            for (int j = 0; j < tableArray[i].length ; j++) {
-                System.out.print(tableArray[i][j] + " ");
+        System.out.println("    A B C D E F G H I J");
+        System.out.println("    -------------------");
+        for (int row = 0; row < tableArray.length ; row++) {
+            for (int column = 0; column < tableArray[row].length ; column++) {
+
+                if (column == 0 && row != 9){
+                    System.out.print(""+ (row + 1) + " | ");
+
+                }else if (column == 0) {
+                    System.out.print(""+ (row + 1) + "| ");
+                }
+
+                System.out.print(tableArray[row][column] + " ");
+
+
             }
+
             System.out.println();
         }
     }
