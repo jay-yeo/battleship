@@ -14,7 +14,7 @@ public class Coordinate {
     // Constructor with String coordinates
     public Coordinate(String xCoordinate, String yCoordinate) {
         y = decodeCoordinate(xCoordinate);
-        x = Integer.parseInt(yCoordinate);
+        x = decodeCoordinate(yCoordinate);
     }
 
 
