@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Player {
     private String playerName;
+    private int playerID;
     private Table playerTable;
     private Table opponentTable;
     private List<Ship> listOfShips;
@@ -12,8 +13,9 @@ public class Player {
 
 
     // Constructor
-    public Player(String nameOfPlayer) {
+    public Player(String nameOfPlayer, int playerNumber) {
         playerName = nameOfPlayer;
+        playerID = playerNumber;
         playerTable = new Table();
         opponentTable = new Table();
         listOfShips = new ArrayList<>();
@@ -36,6 +38,11 @@ public class Player {
     // Get player name
     public String getPlayerName() {
         return playerName;
+    }
+
+    // Get player ID - eg. Player 1 or Player 2
+    public int getPlayerID() {
+        return playerID;
     }
 
     // Get player's list of ships
@@ -159,17 +166,17 @@ public class Player {
     }
 
 
-
-    public void fire(Coordinate coordinateToFire, Player player1, Player player2) {
-        if (player1.opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] == 0) {
-            if (player2.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] == 0) {
-                player1.opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 9;
-                player2.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 9;
+    // Fire Missile
+    public void fire(Coordinate coordinateToFire, Player playerOpponent) {
+        if (opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] == 0) {
+            if (playerOpponent.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] == 0) {
+                opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 9;
+                playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 9;
             }
-            else if (player2.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] == 1) {
-                player1.opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 8;
-                player2.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 8;
-                for (Ship ship : player2.listOfShips) {
+            else if (playerOpponent.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] == 1) {
+                opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 8;
+                playerOpponent.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 8;
+                for (Ship ship : playerOpponent.listOfShips) {
                     for (Coordinate coordinate : ship.shipCoordinates) {
                         if (coordinate.getX() == coordinateToFire.getX() && coordinate.getY() == coordinateToFire.getY()) {
                             ship.shipMaxHits -= 1;
@@ -188,6 +195,8 @@ public class Player {
         }
     }
 }
+
+
 
 
 

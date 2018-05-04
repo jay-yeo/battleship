@@ -26,12 +26,12 @@ public class Game {
 
         if (playerNumber == 1) {
             // Create new playerOne
-            Player newPlayer = new Player(playerName);
+            Player newPlayer = new Player(playerName, 1);
             playerOne = newPlayer;
 
         } else if (playerNumber == 2) {
             // Create new playerTwo
-            Player newPlayer = new Player(playerName);
+            Player newPlayer = new Player(playerName, 2);
             playerTwo = newPlayer;
         } else {
             System.out.println("Invalid player number. Please select player 1 or 2.");
@@ -83,6 +83,7 @@ public class Game {
 
     // Player Fire missile
     public void playerFire(Player gamePlayer) {
+
         // Fire missile!
         System.out.println("You may fire when ready...");
 
@@ -95,6 +96,12 @@ public class Game {
         System.out.println("Set target y coordinate:");
         LineByLineReader yInput = new LineByLineReader();
         String yValue = yInput.readLineFromStdIn();
+
+        // Create coordinate object for firing missile
+        Coordinate fireCoordinate = new Coordinate(xValue, yValue);
+
+        // Fire missile method
+        gamePlayer.fire(fireCoordinate, getPlayerOpponent(gamePlayer));
 
         System.out.println("Rocket fired at " + xValue.toUpperCase() + yValue + "\n");
     }
@@ -117,6 +124,17 @@ public class Game {
     public static void clearConsole() {
         for (int i = 0; i < 100; i++) {
             System.out.println();
+        }
+    }
+
+    // Determine opponent
+    public Player getPlayerOpponent(Player gamePlayer) {
+        if (gamePlayer.getPlayerID() == 1) {
+            return playerTwo;
+        } else if (gamePlayer.getPlayerID() == 2) {
+            return playerOne;
+        } else {
+            return null;
         }
     }
 
