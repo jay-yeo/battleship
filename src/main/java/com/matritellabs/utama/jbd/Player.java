@@ -181,6 +181,7 @@ public class Player {
                             ship.shipMaxHits -= 1;
                             if (ship.shipMaxHits == 0) {
                                 ship.shipSunk = true;
+                                playerOpponent.sunkenShip.add(ship);
                                 System.out.println(" hit and sunk");
                             }else {
                                 System.out.println("Nice, that's a hit!");
