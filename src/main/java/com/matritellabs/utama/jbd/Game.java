@@ -210,4 +210,12 @@ public class Game {
         }
     }
 
+    public boolean checkValidOrientation(String orientation) {
+        if (orientation.toUpperCase().equals("H") ||
+                orientation.toUpperCase().equals("V")) {
+            return true;
+        }
+        return false;
+    }
+
 }
