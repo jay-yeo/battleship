@@ -53,28 +53,32 @@ public class Game {
     public void playerShipPlacement(Player gamePlayer) {
         System.out.println("Admiral " + gamePlayer.getPlayerName() + " prepare your fleet!");
         for (Ship ship : gamePlayer.getListOfShips()) {
-            // Place ship
-            System.out.println("Place your " + ship.shipType + " on the board!");
 
-            // Set x position
-            System.out.println("Set x position:");
-            LineByLineReader xInput = new LineByLineReader();
-            String xValue = xInput.readLineFromStdIn();
+            while (ship.shipCoordinates.size() == 0) {
+                // Place ship
+                System.out.println("Place your " + ship.shipType + " on the board!");
 
-            // Set y position
-            System.out.println("Set y position:");
-            LineByLineReader yInput = new LineByLineReader();
-            String yValue = yInput.readLineFromStdIn();
+                // Set x position
+                System.out.println("Set x position:");
+                LineByLineReader xInput = new LineByLineReader();
+                String xValue = xInput.readLineFromStdIn();
 
-            // Set orientation Value
-            System.out.println("Set orientation (H or V):");
-            LineByLineReader orientationInput = new LineByLineReader();
-            String orientation = orientationInput.readLineFromStdIn();
+                // Set y position
+                System.out.println("Set y position:");
+                LineByLineReader yInput = new LineByLineReader();
+                String yValue = yInput.readLineFromStdIn();
 
-            // Set ship position
-            gamePlayer.placeShip(ship, new Coordinate(xValue, yValue), orientation.toUpperCase());
+                // Set orientation Value
+                System.out.println("Set orientation (H or V):");
+                LineByLineReader orientationInput = new LineByLineReader();
+                String orientation = orientationInput.readLineFromStdIn();
 
-            System.out.println(ship.shipType + " placed at " + xValue.toUpperCase() + yValue);
+                // Set ship position
+                gamePlayer.placeShip(ship, new Coordinate(xValue, yValue), orientation.toUpperCase());
+                System.out.println(ship.shipType + " placed at " + xValue.toUpperCase() + yValue);
+            }
+
+
             System.out.println("---------------------------");
         }
 
