@@ -27,7 +27,7 @@ public class Table {
     // Print Table Method
     public void printTable() {
         System.out.println("    A B C D E F G H I J");
-        System.out.println("    -------------------");
+        System.out.println("   --------------------");
         for (int row = 0; row < tableArray.length ; row++) {
             for (int column = 0; column < tableArray[row].length ; column++) {
 
@@ -43,8 +43,10 @@ public class Table {
 
             }
 
-            System.out.println();
+            System.out.println("");
         }
+        System.out.println("   ====================");
+//                               ====================
     }
 
 }

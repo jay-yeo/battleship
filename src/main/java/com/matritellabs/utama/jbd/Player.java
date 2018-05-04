@@ -178,6 +178,7 @@ public class Player {
             if (playerOpponent.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] == 0) {
                 opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 9;
                 playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 9;
+                System.out.println("No hit, next time!");
             }
             else if (playerOpponent.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] == 1) {
                 opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 8;

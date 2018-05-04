@@ -61,7 +61,7 @@ public class Game {
 
             while (ship.shipCoordinates.size() == 0) {
                 // Place ship
-                System.out.println("Place your " + ship.shipType.toUpperCase() + " on the board!");
+                System.out.println("Place your " + ship.shipType.toUpperCase() + " (" + "size: " + ship.shipSize + ")" + " on the board!");
 
                 // X and Y values
                 String xValue = "";
@@ -110,7 +110,7 @@ public class Game {
 
                 // Set ship position
                 if (gamePlayer.placeShip(ship, new Coordinate(xValue, yValue), orientation.toUpperCase())) {
-                    System.out.println("\n" + ship.shipType.toUpperCase() + " placed at " + xValue.toUpperCase() + yValue);
+                    System.out.println("\n" + ship.shipType.toUpperCase() + " placed at " + xValue.toUpperCase() + yValue + "\n");
 
                 }else {
                     System.out.println("Try again!" + "\n");
@@ -155,10 +155,10 @@ public class Game {
         System.out.println("Admiral " + gamePlayer.getPlayerName() + ", it's your turn to fire!");
         System.out.println("---------------------------");
 
-        System.out.println("Your Ships: ");
+        System.out.println("Your Ships: " + "\n");
         gamePlayer.getPlayerTable().printTable();
 
-        System.out.println("Enemy Ships: ");
+        System.out.println("Enemy Ships: " + "\n");
         gamePlayer.getOpponentTable().printTable();
 
         playerFire(gamePlayer);
