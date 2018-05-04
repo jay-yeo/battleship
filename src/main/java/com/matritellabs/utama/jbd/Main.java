@@ -14,6 +14,15 @@ public class Main {
         String ANSI_CYAN = "\u001B[36m";
         String ANSI_WHITE = "\u001B[37m";
 
+        final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
+        final String ANSI_RED_BACKGROUND = "\u001B[41m";
+        final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
+        final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
+        final String ANSI_BLUE_BACKGROUND = "\u001B[44m";
+        final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
+        final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
+        final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+
 
         // Setup New Game
         System.out.println("BATTLESHIP by torpedoTeam-2");
