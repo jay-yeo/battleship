@@ -138,4 +138,40 @@ public class Game {
         }
     }
 
+    //check valid hits by letter
+    public boolean checkValidLetter(String inputLetter) {
+        if (inputLetter.toUpperCase().charAt(0) != 'A' &&
+                inputLetter.charAt(0) != 'B' &&
+                inputLetter.charAt(0) != 'C' &&
+                inputLetter.charAt(0) != 'D' &&
+                inputLetter.charAt(0) != 'E' &&
+                inputLetter.charAt(0) != 'F' &&
+                inputLetter.charAt(0) != 'G' &&
+                inputLetter.charAt(0) != 'H' &&
+                inputLetter.charAt(0) != 'I' &&
+                inputLetter.charAt(0) != 'J' ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //check valid hits by number
+    public boolean checkValidNumber(String inputNumber) {
+        if (inputNumber.charAt(0) != '1' &&
+                inputNumber.charAt(0) != '2' &&
+                inputNumber.charAt(0) != '3' &&
+                inputNumber.charAt(0) != '4' &&
+                inputNumber.charAt(0) != '5' &&
+                inputNumber.charAt(0) != '6' &&
+                inputNumber.charAt(0) != '7' &&
+                inputNumber.charAt(0) != '8' &&
+                inputNumber.charAt(0) != '9' &&
+                (inputNumber.charAt(0) + inputNumber.charAt(1) + "" )!= "10" ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
