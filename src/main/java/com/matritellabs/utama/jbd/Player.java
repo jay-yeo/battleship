@@ -50,6 +50,11 @@ public class Player {
         return listOfShips;
     }
 
+    // Get player's list of sunken ships
+    public List<Ship> getListOfSunkenShips() {
+        return sunkenShip;
+    }
+
     // Get player view
     public Table getPlayerTable() {
         return playerTable;

@@ -1,6 +1,8 @@
 package com.matritellabs.utama.jbd;
 import com.matritellabs.utama.helper.LineByLineReader;
 
+import java.awt.*;
+
 public class Game {
     private String gameName;
     private Player playerOne;
@@ -73,9 +75,16 @@ public class Game {
                 LineByLineReader orientationInput = new LineByLineReader();
                 String orientation = orientationInput.readLineFromStdIn();
 
-                // Set ship position
-                gamePlayer.placeShip(ship, new Coordinate(xValue, yValue), orientation.toUpperCase());
-                System.out.println(ship.shipType + " placed at " + xValue.toUpperCase() + yValue);
+                if (checkValidLetter(xValue) && checkValidNumber(yValue)) {
+                    // Set ship position
+                    gamePlayer.placeShip(ship, new Coordinate(xValue, yValue), orientation.toUpperCase());
+                    System.out.println(ship.shipType + " placed at " + xValue.toUpperCase() + yValue);
+
+                } else {
+                    // Error message
+                    System.out.println("\nInvalid coordinates. Please try again!\n");
+                }
+
             }
 
 
