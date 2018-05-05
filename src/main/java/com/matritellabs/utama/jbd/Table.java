@@ -38,12 +38,12 @@ public class Table {
     }
 
     // Set table field value
-    public void setTableField(int horzCoordinate, int vertCoordinate) {
-        tableArray[horzCoordinate][vertCoordinate] = 1;
+    public void setTableField(int horzCoordinate, int vertCoordinate, Ship ship) {
+        tableArray[horzCoordinate][vertCoordinate] = ship.shipSize;
     }
 
     // Print Table Method
-    public void printTable3() {
+    public void printTable2() {
         System.out.println("    A B C D E F G H I J");
         System.out.println("   --------------------");
         for (int row = 0; row < tableArray.length ; row++) {
@@ -68,12 +68,24 @@ public class Table {
     }
     public void coloring(int input) {
         if (input == 0) {
-            System.out.print(ANSI_WHITE_BACKGROUND + "   " + ANSI_RESET + " ");
-        }else if (input == 1) {
-            System.out.print(ANSI_BLUE_BACKGROUND + "   " + ANSI_RESET + " ");
-        }else  if (input == 8 || input == 7) {
+            System.out.print(ANSI_WHITE_BACKGROUND + ANSI_BLACK + "   " + ANSI_RESET + " ");
+        }
+        else if (input == 2) {
+            System.out.print(ANSI_BLUE_BACKGROUND + ANSI_WHITE + " " + input+ " " + ANSI_RESET + " ");
+        }
+        else if (input == 3) {
+            System.out.print(ANSI_BLUE_BACKGROUND + ANSI_WHITE + " " + input+ " " + ANSI_RESET + " ");
+        }
+        else if (input == 4) {
+            System.out.print(ANSI_BLUE_BACKGROUND + ANSI_WHITE + " " + input+ " " + ANSI_RESET + " ");
+        }
+        else if (input == 5) {
+            System.out.print(ANSI_BLUE_BACKGROUND + ANSI_WHITE + " " + input+ " " + ANSI_RESET + " ");
+        }
+        else  if (input == 8 || input == 7) {
             System.out.print(ANSI_GREEN_BACKGROUND + "   " + ANSI_RESET + " ");
-        }else if (input == 9) {
+        }
+        else if (input == 9) {
             System.out.print(ANSI_RED_BACKGROUND  + "   " + ANSI_RESET + " ");
         }
     }
