@@ -54,14 +54,14 @@ public class Game {
     // Player ship placement method.
     public void playerShipPlacement(Player gamePlayer) {
 
-        System.out.println("ADMIRAL " + gamePlayer.getPlayerName().toUpperCase() + " prepare your fleet!");
+        System.out.println("\n" + gamePlayer.getPlayerName().toUpperCase() + ", prepare your fleet!");
         System.out.println("---------------------------");
 
         for (Ship ship : gamePlayer.getListOfShips()) {
 
             while (ship.shipCoordinates.size() == 0) {
                 // Place ship
-                System.out.println("Place your " + ship.shipType.toUpperCase() + " on the board!");
+                System.out.println("Place your " + ship.shipType.toUpperCase() + " (" + "Size: " + ship.shipSize + ")" + " on the board!");
 
                 // X and Y values
                 String xValue = "";
@@ -105,56 +105,90 @@ public class Game {
                     if (!checkValidOrientation(orientation)) {
                         System.out.println("\nInvalid orientation. Please use 'V' for vertical and 'H' for horizontal and try again...\n");
                     }
+
                 }
 
                 // Set ship position
-                gamePlayer.placeShip(ship, new Coordinate(xValue, yValue), orientation.toUpperCase());
-                System.out.println("\n" + ship.shipType.toUpperCase() + " placed at " + xValue.toUpperCase() + yValue);
+                if (gamePlayer.placeShip(ship, new Coordinate(xValue, yValue), orientation.toUpperCase())) {
+                    System.out.println("\n" + ship.shipType.toUpperCase() + " placed at " + xValue.toUpperCase() + yValue + "\n");
 
+                }else {
+                    System.out.println("Try again!" + "\n");
+                }
+
+                System.out.println("\nYour Ships: \n");
+                gamePlayer.getPlayerTable().printTable();
+                System.out.println("---------------------------");
             }
 
-            System.out.println("---------------------------");
         }
 
         // Placing ships finished
-        System.out.println("\nADMIRAL " + gamePlayer.getPlayerName().toUpperCase() + ":" );
-        System.out.println("All ships deployed to their positions!\n");
+        System.out.println("\n" + gamePlayer.getPlayerName().toUpperCase() + ":" );
+        System.out.println("All ships have been deployed to their positions!\n");
     }
 
     // Player Fire missile
     public void playerFire(Player gamePlayer) {
 
         // Fire missile!
-        System.out.println("You may fire when ready...");
+        System.out.println("\n" + gamePlayer.getPlayerName().toUpperCase() + ", you may fire when ready...");
 
         // Set x position
         System.out.println("Set target x coordinate");
         LineByLineReader xInput = new LineByLineReader();
         String xValue = xInput.readLineFromStdIn();
+        while (!checkValidLetter(xValue)) {
+            System.out.println("Invalid x position. Please use letters [A-J] and try again...");
+            xValue = xInput.readLineFromStdIn();
+        }
 
         // Set y position
         System.out.println("Set target y coordinate:");
         LineByLineReader yInput = new LineByLineReader();
         String yValue = yInput.readLineFromStdIn();
-
+        while (!checkValidNumber(yValue)) {
+            System.out.println("Invalid y coordinate. Please use numbers [1-10] and try again...");
+            yValue = yInput.readLineFromStdIn();
+        }
         // Create coordinate object for firing missile
         Coordinate fireCoordinate = new Coordinate(xValue, yValue);
+        while (gamePlayer.getOpponentTable().tableArray[fireCoordinate.getX()][fireCoordinate.getY()] != 0) {
+            System.out.println("You already fired here, try again!" + "\n");
+            // Set x position
+            System.out.println("Set target x coordinate");
+            xInput = new LineByLineReader();
+            xValue = xInput.readLineFromStdIn();
+            while (!checkValidLetter(xValue)) {
+                System.out.println("Invalid x position. Please use letters [A-J] and try again...");
+                xValue = xInput.readLineFromStdIn();
+            }
 
+            // Set y position
+            System.out.println("Set target y coordinate:");
+            yInput = new LineByLineReader();
+            yValue = yInput.readLineFromStdIn();
+            while (!checkValidNumber(yValue)) {
+                System.out.println("Invalid y coordinate. Please use numbers [1-10] and try again...");
+                yValue = yInput.readLineFromStdIn();
+            }
+            fireCoordinate = new Coordinate(xValue, yValue);
+        }
         // Fire missile method
-        gamePlayer.fire(fireCoordinate, getPlayerOpponent(gamePlayer));
-
         System.out.println("Rocket fired at " + xValue.toUpperCase() + yValue + "\n");
+        gamePlayer.fire(fireCoordinate, getPlayerOpponent(gamePlayer));
     }
 
     // Player turn operations method
     public void playerTurn(Player gamePlayer) {
-        System.out.println("Admiral " + gamePlayer.getPlayerName() + ", it's your turn to fire!");
+        System.out.println("\n" + gamePlayer.getPlayerName().toUpperCase() + ", it's your turn to fire!");
         System.out.println("---------------------------");
 
-        System.out.println("Your Ships: ");
+        System.out.println("Your Ships: " + "\n");
+        gamePlayer.getShipDamageReport();
         gamePlayer.getPlayerTable().printTable();
 
-        System.out.println("Enemy Ships: ");
+        System.out.println("\nEnemy Ships: " + "\n");
         gamePlayer.getOpponentTable().printTable();
 
         playerFire(gamePlayer);

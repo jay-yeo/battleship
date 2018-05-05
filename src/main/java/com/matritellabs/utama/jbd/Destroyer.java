@@ -4,6 +4,6 @@ public class Destroyer extends Ship {
 
     // Constructor
     public Destroyer() {
-        super("Submarine", 2);
+        super("Destroyer", 2);
     }
 }

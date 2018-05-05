@@ -101,10 +101,18 @@ public class Player {
         return null;
     }
 
+    // Get ship damage report
+    public void getShipDamageReport() {
+        for (Ship ship : listOfShips) {
+            System.out.println(ship.shipType.toUpperCase() + " " + ship.getShipDamage());
+        }
+        System.out.println("\n");
+    }
+
 
     // Place player ship
-    public void placeShip(Ship shipType, Coordinate inputCoordinate, String orientation) {
-
+    public boolean placeShip(Ship shipType, Coordinate inputCoordinate, String orientation) {
+        boolean isSuccesful = false;
         if (orientation.toUpperCase().equals("H")) {
             // Set ship in horizontal position
             if (isPlacingPossibleHorizontally(shipType, inputCoordinate)){
@@ -112,8 +120,9 @@ public class Player {
                     int xValue = inputCoordinate.getX();
                     int yValue = inputCoordinate.getY() + i;
 
-                    playerTable.setTableField(xValue, yValue);
+                    playerTable.setTableField(xValue, yValue, shipType);
                     shipType.shipCoordinates.add(new Coordinate(xValue, yValue));
+                    isSuccesful = true;
                 }
             }
         }
@@ -125,17 +134,18 @@ public class Player {
                     int xValue = inputCoordinate.getX() + i;
                     int yValue = inputCoordinate.getY();
 
-                    playerTable.setTableField(xValue, yValue);
+                    playerTable.setTableField(xValue, yValue, shipType);
                     shipType.shipCoordinates.add(new Coordinate(xValue, yValue));
+                    isSuccesful = true;
                 }
             }
         }
-
+        return isSuccesful;
     }
 
     public  boolean isPlacingPossibleHorizontally(Ship shipType, Coordinate inputCoordinate) {
         int counter = 0;
-        if (inputCoordinate.getY() + shipType.shipSize  < playerTable.getTableSize()
+        if (inputCoordinate.getY() + shipType.shipSize  <= playerTable.getTableSize()
                 && playerTable.tableArray[inputCoordinate.getX()][inputCoordinate.getY()] == 0) {
             for (int i = 0; i < shipType.shipSize; i++) {
                if (playerTable.tableArray[inputCoordinate.getX()][inputCoordinate.getY() + i] == 0){
@@ -153,7 +163,7 @@ public class Player {
 
     public  boolean isPlacingPossibleVertically(Ship shipType, Coordinate inputCoordinate) {
         int counter = 0;
-        if (inputCoordinate.getX() + shipType.shipSize  < playerTable.getTableSize()
+        if (inputCoordinate.getX() + shipType.shipSize  <= playerTable.getTableSize()
                 && playerTable.tableArray[inputCoordinate.getX()][inputCoordinate.getY()] == 0) {
             for (int i = 0; i < shipType.shipSize; i++) {
                 if (playerTable.tableArray[inputCoordinate.getX() + i][inputCoordinate.getY()] == 0){
@@ -172,12 +182,15 @@ public class Player {
 
     // Fire Missile
     public void fire(Coordinate coordinateToFire, Player playerOpponent) {
+        int oppPlayertable = playerOpponent.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()];
+
         if (opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] == 0) {
-            if (playerOpponent.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] == 0) {
+            if (oppPlayertable == 0) {
                 opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 9;
-                playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 9;
+                playerOpponent.getPlayerTable().tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 9;
+                System.out.println("MISS! Missile unsuccessful...");
             }
-            else if (playerOpponent.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] == 1) {
+            else if (oppPlayertable == 2 || oppPlayertable == 3 || oppPlayertable == 4 || oppPlayertable ==5) {
                 opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 8;
                 playerOpponent.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 8;
                 for (Ship ship : playerOpponent.listOfShips) {
@@ -187,16 +200,20 @@ public class Player {
                             if (ship.shipMaxHits == 0) {
                                 ship.shipSunk = true;
                                 playerOpponent.sunkenShip.add(ship);
-                                System.out.println(" hit and sunk");
+                                for (Coordinate coordinate1 : ship.shipCoordinates) {
+                                    opponentTable.tableArray[coordinate1.getX()][coordinate1.getY()] = 7;
+                                    playerOpponent.getPlayerTable().tableArray[coordinate1.getX()][coordinate1.getY()] = 7;
+                                }
+                                System.out.println("DIRECT HIT! Missile successful... You sank the enemy's " + ship.shipType.toUpperCase());
                             }else {
-                                System.out.println("Nice, that's a hit!");
+                                System.out.println("DIRECT HIT! Missile successful...");
                             }
                         }
                     }
                 }
             }
         }else {
-            System.out.println("You already fired here, try again!");
+            System.out.println("Position already fired upon, please try again!");
         }
     }
 }
