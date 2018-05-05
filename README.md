@@ -11,7 +11,8 @@ Please also see our ongoing list of [contributors](https://github.com/jay-yeo/ba
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+Latest version `	
+v0.1.0-beta.1` We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/jay-yeo/battleship/tags).
 
 ## Acknowledgments
 
