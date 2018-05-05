@@ -204,16 +204,16 @@ public class Player {
                                     opponentTable.tableArray[coordinate1.getX()][coordinate1.getY()] = 7;
                                     playerOpponent.getPlayerTable().tableArray[coordinate1.getX()][coordinate1.getY()] = 7;
                                 }
-                                System.out.println(" hit and sunk");
+                                System.out.println("DIRECT HIT! Missile successful... You sank the enemy's " + ship.shipType.toUpperCase());
                             }else {
-                                System.out.println("Nice, that's a hit!");
+                                System.out.println("DIRECT HIT! Missile successful...");
                             }
                         }
                     }
                 }
             }
         }else {
-            System.out.println("You already fired here, try again!");
+            System.out.println("Position already fired upon, please try again!");
         }
     }
 }

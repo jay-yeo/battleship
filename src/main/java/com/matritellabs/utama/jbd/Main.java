@@ -24,7 +24,7 @@ public class Main {
                 "  ███    ██▄   ███    ███     ███         ███     ███         ███    █▄           ███   ███    ███   ███    ███        \n" +
                 "  ███    ███   ███    ███     ███         ███     ███▌    ▄   ███    ███    ▄█    ███   ███    ███   ███    ███        \n" +
                 "▄█████████▀    ███    █▀     ▄████▀      ▄████▀   █████▄▄██   ██████████  ▄████████▀    ███    █▀    █▀    ▄████▀      \n" +
-                "                                                  ▀                                                                    \n by torpedoTeam-2");
+                "                                                  ▀                                                                    \nby torpedoTeam-2");
         System.out.println("---------------------------");
         System.out.println("Starting new Battleship game...\n");
         Game newGame = new Game();
@@ -42,7 +42,7 @@ public class Main {
 
         // Place ships
         newGame.playerShipPlacement(newGame.getPlayerOne());
-        System.out.println("\n" + playerOneName + ", press enter to continue!");
+        System.out.println("\n" + playerOneName.toUpperCase() + ", press enter to continue!");
         LineByLineReader enter = new LineByLineReader();
         enter.readLineFromStdIn();
 
@@ -63,12 +63,12 @@ public class Main {
         // Place ships
         newGame.playerShipPlacement(newGame.getPlayerTwo());
 
-        System.out.println(playerTwoName + ", press enter to continue!");
+        System.out.println(playerTwoName.toUpperCase() + ", press enter to continue!");
         enter.readLineFromStdIn();
 
         // Privacy line-feed
         newGame.clearConsole();
-        System.out.println(playerOneName + ", press enter to continue!");
+        System.out.println(playerOneName.toUpperCase() + ", press enter to continue!");
         enter.readLineFromStdIn();
 
         // Play game until either player has zero ships remaining
@@ -83,12 +83,12 @@ public class Main {
                 System.out.println("Congrats, " + newGame.getPlayerOne().getPlayerName() + " won!");
                 break;
             }
-            System.out.println(playerOneName + ", press enter to continue!");
+            System.out.println(playerOneName.toUpperCase() + ", press enter to continue!");
             enter.readLineFromStdIn();
 
             // Privacy line-feed
             newGame.clearConsole();
-            System.out.println(playerTwoName + ", press enter to continue!");
+            System.out.println(playerTwoName.toUpperCase() + ", press enter to continue!");
             enter.readLineFromStdIn();
 
             // Player two turn
@@ -99,12 +99,12 @@ public class Main {
                 System.out.println("Congrats, " + newGame.getPlayerTwo().getPlayerName() + " won!" + "\n");
                 break;
             }
-            System.out.println(playerTwoName + ", press enter to continue!");
+            System.out.println(playerTwoName.toUpperCase() + ", press enter to continue!");
             enter.readLineFromStdIn();
 
             // Privacy line-feed
             newGame.clearConsole();
-            System.out.println(playerOneName + ", press enter to continue!");
+            System.out.println(playerOneName.toUpperCase() + ", press enter to continue!");
             enter.readLineFromStdIn();
 
         }

@@ -41,4 +41,3 @@ public class Ship {
         this.shipMaxHits--;
     }
 }
-q

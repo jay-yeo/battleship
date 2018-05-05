@@ -125,7 +125,7 @@ public class Game {
 
         // Placing ships finished
         System.out.println("\n" + gamePlayer.getPlayerName().toUpperCase() + ":" );
-        System.out.println("All ships deployed to their positions!\n");
+        System.out.println("All ships have been deployed to their positions!\n");
     }
 
     // Player Fire missile
