@@ -83,8 +83,10 @@ public class Table {
         else if (input == 5) {
             System.out.print(ANSI_BLUE_BACKGROUND + ANSI_WHITE + " " + input+ " " + ANSI_RESET + " ");
         }
-        else  if (input == 8 || input == 7) {
+        else  if (input == 8) {
             System.out.print(ANSI_GREEN_BACKGROUND + "   " + ANSI_RESET + " ");
+        }else if (input == 7) {
+            System.out.print(ANSI_PURPLE_BACKGROUND + "   " + ANSI_RESET + " ");
         }
         else if (input == 9) {
             System.out.print(ANSI_RED_BACKGROUND  + "   " + ANSI_RESET + " ");
@@ -97,10 +99,11 @@ public class Table {
         String ANSI_RED_BACKGROUND = "\u001B[41;1m";
         String ANSI_GREEN_BACKGROUND = "\u001B[42m";
         String ANSI_BLUE_BACKGROUND = "\u001B[44m";
+        String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
 
 
-        System.out.println("\n       " + ANSI_BLUE_BACKGROUND + "   " + ANSI_RESET + " = ship, " + ANSI_GREEN_BACKGROUND + "   " + ANSI_RESET + " = hit, " +
-                            ANSI_RED_BACKGROUND + "   " + ANSI_RESET + " = miss \n \n");
+        System.out.println("\n  " + ANSI_BLUE_BACKGROUND + "   " + ANSI_RESET + " = ship, " + ANSI_GREEN_BACKGROUND + "   " + ANSI_RESET + " = hit, " +
+                            ANSI_RED_BACKGROUND + "   " + ANSI_RESET + " = miss, " + ANSI_PURPLE_BACKGROUND + "   " + ANSI_RESET + " = sunken ship \n");
         System.out.println("     A   B   C   D   E   F   G   H   I   J ");
         System.out.println("   ------------------------------------------");
         for (int row = 0; row < tableArray.length ; row++) {
