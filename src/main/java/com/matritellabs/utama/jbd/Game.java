@@ -23,21 +23,54 @@ public class Game {
                 '}';
     }
 
+    // Game Menu
+    public void gameMenu() {
+        String ANSI_RESET = "\u001B[0m";
+        String ANSI_BLACK = "\u001B[30m";
+        String ANSI_RED = "\u001B[31m";
+        String ANSI_GREEN = "\u001B[32m";
+        String ANSI_YELLOW = "\u001B[33m";
+        String ANSI_BLUE = "\u001B[34m";
+        String ANSI_PURPLE = "\u001B[35m";
+        String ANSI_CYAN = "\u001B[36m";
+        String ANSI_WHITE = "\u001B[37m";
+
+
+        // Setup New Game
+        System.out.println("▀█████████▄     ▄████████     ███         ███      ▄█          ▄████████    ▄████████    ▄█    █▄     ▄█     ▄███████▄ \n" +
+                "  ███    ███   ███    ███ ▀█████████▄ ▀█████████▄ ███         ███    ███   ███    ███   ███    ███   ███    ███    ███ \n" +
+                "  ███    ███   ███    ███    ▀███▀▀██    ▀███▀▀██ ███         ███    █▀    ███    █▀    ███    ███   ███▌   ███    ███ \n" +
+                " ▄███▄▄▄██▀    ███    ███     ███   ▀     ███   ▀ ███        ▄███▄▄▄       ███         ▄███▄▄▄▄███▄▄ ███▌   ███    ███ \n" +
+                "▀▀███▀▀▀██▄  ▀███████████     ███         ███     ███       ▀▀███▀▀▀     ▀███████████ ▀▀███▀▀▀▀███▀  ███▌ ▀█████████▀  \n" +
+                "  ███    ██▄   ███    ███     ███         ███     ███         ███    █▄           ███   ███    ███   ███    ███        \n" +
+                "  ███    ███   ███    ███     ███         ███     ███▌    ▄   ███    ███    ▄█    ███   ███    ███   ███    ███        \n" +
+                "▄█████████▀    ███    █▀     ▄████▀      ▄████▀   █████▄▄██   ██████████  ▄████████▀    ███    █▀    █▀    ▄████▀      \n" +
+                "                                                  ▀                                                                    \nby torpedoTeam-2");
+        System.out.println("---------------------------");
+        System.out.println("Starting new Battleship game...\n");
+    }
+
     // Create and log new players
-    public void setGamePlayer(int playerNumber, String playerName) {
+    public void setGamePlayers() {
 
-        if (playerNumber == 1) {
-            // Create new playerOne
-            Player newPlayer = new Player(playerName, 1);
-            playerOne = newPlayer;
+        // Create player one
+        System.out.println("\nPlayer 1: (Enter Name)");
+        LineByLineReader playerOneNameInput = new LineByLineReader();
+        String playerOneName = playerOneNameInput.readLineFromStdIn();
 
-        } else if (playerNumber == 2) {
-            // Create new playerTwo
-            Player newPlayer = new Player(playerName, 2);
-            playerTwo = newPlayer;
-        } else {
-            System.out.println("Invalid player number. Please select player 1 or 2.");
-        }
+        Player player1 = new Player(playerOneName, 1);
+        playerOne = player1;
+
+        System.out.println("\nPlayer 2: (Enter Name)");
+        LineByLineReader playerTwoNameInput = new LineByLineReader();
+        String playerTwoName = playerTwoNameInput.readLineFromStdIn();
+
+        Player player2 = new Player(playerTwoName, 2);
+        playerTwo = player2;
+
+        // this.getPlayerOne().getPlayerTable().printTable();
+
+        System.out.println("\n");
 
     }
 
@@ -126,6 +159,63 @@ public class Game {
         // Placing ships finished
         System.out.println("\n" + gamePlayer.getPlayerName().toUpperCase() + ":" );
         System.out.println("All ships have been deployed to their positions!\n");
+    }
+
+    public void setGameShips() {
+
+        // Setup playerOne ships
+        this.playerShipPlacement(playerOne);
+        System.out.println("\n" + playerOne.getPlayerName().toUpperCase() + ", press enter to continue!");
+        pressEnter();
+
+        // Privacy Linefeed
+        clearConsole();
+
+        // Setup playerTwo ships
+        this.playerShipPlacement(playerTwo);
+        System.out.println("\n" + playerTwo.getPlayerName().toUpperCase() + ", press enter to continue!");
+        pressEnter();
+
+    }
+
+    public void gamePlay() {
+        // Play game until either player has zero ships remaining
+        while (playerOne.getListOfSunkenShips().size() != 6 || playerTwo.getListOfSunkenShips().size() != 6) {
+
+
+            // Player one turn
+            System.out.println(playerOne.getListOfSunkenShips());
+            this.playerTurn(playerOne);
+            playerOne.getOpponentTable().printTable();
+            if (playerTwo.getListOfSunkenShips().size() == 5) {
+                System.out.println("Congrats, " + playerOne.getPlayerName() + " won!");
+                break;
+            }
+            System.out.println(playerOne.getPlayerName().toUpperCase() + ", press enter to continue!");
+            pressEnter();
+
+            // Privacy line-feed
+            clearConsole();
+
+            // Player two turn
+            System.out.println(playerTwo.getListOfSunkenShips());
+            this.playerTurn(playerTwo);
+            playerTwo.getOpponentTable().printTable();
+            if (playerOne.getListOfSunkenShips().size() == 5) {
+                System.out.println("Congrats, " + playerTwo.getPlayerName() + " won!" + "\n");
+                break;
+            }
+            System.out.println(playerTwo.getPlayerName().toUpperCase() + ", press enter to continue!");
+            pressEnter();
+
+            // Privacy line-feed
+            clearConsole();
+//            System.out.println(playerOneName.toUpperCase() + ", press enter to continue!");
+//            enter.readLineFromStdIn();
+
+        }
+
+        System.out.println("GAME OVER!");
     }
 
     // Player Fire missile
@@ -254,6 +344,11 @@ public class Game {
             return true;
         }
         return false;
+    }
+
+    public void pressEnter() {
+        LineByLineReader enter = new LineByLineReader();
+        enter.readLineFromStdIn();
     }
 
 }
