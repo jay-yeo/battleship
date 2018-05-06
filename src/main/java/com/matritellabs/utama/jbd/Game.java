@@ -1,8 +1,7 @@
 package com.matritellabs.utama.jbd;
 import com.matritellabs.utama.helper.LineByLineReader;
 
-import java.awt.*;
-
+// Battleship Game
 public class Game {
     private String gameName;
     private Player playerOne;
@@ -25,6 +24,8 @@ public class Game {
 
     // Game Menu
     public void gameMenu() {
+
+        // ANSI colour set
         String ANSI_RESET = "\u001B[0m";
         String ANSI_BLACK = "\u001B[30m";
         String ANSI_RED = "\u001B[31m";
@@ -58,19 +59,21 @@ public class Game {
         LineByLineReader playerOneNameInput = new LineByLineReader();
         String playerOneName = playerOneNameInput.readLineFromStdIn();
 
+        // playerOne initialization and assignment
         Player player1 = new Player(playerOneName, 1);
         playerOne = player1;
 
+        // Create player two
         System.out.println("\nPlayer 2: (Enter Name)");
         LineByLineReader playerTwoNameInput = new LineByLineReader();
         String playerTwoName = playerTwoNameInput.readLineFromStdIn();
 
+        // playerTwo initialization and assignment
         Player player2 = new Player(playerTwoName, 2);
         playerTwo = player2;
 
-        // this.getPlayerOne().getPlayerTable().printTable();
-
-        System.out.println("\n");
+        // End setGamePlayers
+        System.out.println("\nPlayer Setup Complete!\n");
 
     }
 
@@ -338,6 +341,7 @@ public class Game {
         }
     }
 
+    // Check if orientation is valid
     public boolean checkValidOrientation(String orientation) {
         if (orientation.toUpperCase().equals("H") ||
                 orientation.toUpperCase().equals("V")) {
@@ -346,6 +350,7 @@ public class Game {
         return false;
     }
 
+    // Press enter to continue method
     public void pressEnter() {
         LineByLineReader enter = new LineByLineReader();
         enter.readLineFromStdIn();

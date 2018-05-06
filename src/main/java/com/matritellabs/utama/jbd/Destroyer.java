@@ -1,5 +1,6 @@
 package com.matritellabs.utama.jbd;
 
+// Create Destroyer ship
 public class Destroyer extends Ship {
 
     // Constructor

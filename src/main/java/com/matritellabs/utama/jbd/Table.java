@@ -1,5 +1,6 @@
 package com.matritellabs.utama.jbd;
 
+// Create Table object
 public class Table {
 
     public static int tableSize = 10;
@@ -49,6 +50,8 @@ public class Table {
         System.out.println("   ====================");
 
     }
+
+    // ANSI colour set
     public void coloring(int input) {
         String ANSI_RESET = "\u001B[0m";
         String ANSI_BLACK = "\u001B[30;1m";
@@ -93,6 +96,7 @@ public class Table {
         }
     }
 
+    // Print table view method
     public void printTable() {
         String ANSI_RESET = "\u001B[0m";
 

@@ -1,5 +1,6 @@
 package com.matritellabs.utama.jbd;
 
+// Create coordinate object
 public class Coordinate {
 
     private int x;
@@ -17,19 +18,22 @@ public class Coordinate {
         x = decodeCoordinate(yCoordinate);
     }
 
-
+    // Get X coordinate
     public int getX() {
         return x;
     }
 
+    // Set X coordinate
     public void setX(int x) {
         this.x = x;
     }
 
+    // Get Y coordinate
     public int getY() {
         return y;
     }
 
+    // Set Y coordinate
     public void setY(int y) {
         this.y = y;
     }

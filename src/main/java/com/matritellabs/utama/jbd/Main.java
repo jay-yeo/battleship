@@ -1,5 +1,4 @@
 package com.matritellabs.utama.jbd;
-import com.matritellabs.utama.helper.LineByLineReader;
 
 // Battleship by torpedoTeam-2 v0.1.0-beta.1
 // https://github.com/jay-yeo/battleship
