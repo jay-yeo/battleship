@@ -1,6 +1,6 @@
 package com.matritellabs.utama.jbd;
 
-// Battleship by torpedoTeam-2 v0.1.0-beta.1
+// Battleship by torpedoTeam-2 v0.1.0-beta.2
 // https://github.com/jay-yeo/battleship
 
 public class Main {
