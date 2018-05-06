@@ -3,6 +3,7 @@ package com.matritellabs.utama.jbd;
 import java.util.ArrayList;
 import java.util.List;
 
+// Create Player
 public class Player {
     private String playerName;
     private int playerID;
@@ -143,6 +144,7 @@ public class Player {
         return isSuccesful;
     }
 
+    // Check to see if ship placement is possible horizontally
     public  boolean isPlacingPossibleHorizontally(Ship shipType, Coordinate inputCoordinate) {
         int counter = 0;
         if (inputCoordinate.getY() + shipType.shipSize  <= playerTable.getTableSize()
@@ -161,6 +163,7 @@ public class Player {
         return false;
     }
 
+    // Check to see if shap placement is possible vertically
     public  boolean isPlacingPossibleVertically(Ship shipType, Coordinate inputCoordinate) {
         int counter = 0;
         if (inputCoordinate.getX() + shipType.shipSize  <= playerTable.getTableSize()
@@ -180,7 +183,7 @@ public class Player {
     }
 
 
-    // Fire Missile
+    // Fire Missile method
     public void fire(Coordinate coordinateToFire, Player playerOpponent) {
         int oppPlayertable = playerOpponent.playerTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()];
 
