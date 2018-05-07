@@ -12,7 +12,7 @@ Please also see our ongoing list of [contributors](https://github.com/jay-yeo/ba
 
 ## Version
 
-Latest version: `v0.1.0-beta.2`
+Latest version: `v0.9.0-beta`
  
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/jay-yeo/battleship/tags).
 
