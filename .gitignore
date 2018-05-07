@@ -16,3 +16,7 @@
 log/
 target/
 out/
+
+# Dia
+.dia.autosave
+.autosave

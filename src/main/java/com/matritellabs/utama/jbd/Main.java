@@ -1,6 +1,6 @@
 package com.matritellabs.utama.jbd;
 
-// Battleship by torpedoTeam-2 v0.1.0-beta.2
+// Battleship by torpedoTeam-2 v0.9.0-beta
 // https://github.com/jay-yeo/battleship
 
 public class Main {
@@ -15,11 +15,22 @@ public class Main {
         // Setup players
         newGame.setGamePlayers();
 
-        // Place ships
-        newGame.setGameShips();
+        // Special Laci EasterEgg
+        if (newGame.getPlayerOne().getPlayerName().toUpperCase().equals("LACI") || newGame.getPlayerTwo().getPlayerName().toUpperCase().equals("LACI") ) {
 
-        // Gameplay
-        newGame.gamePlay();
+            System.out.println("Laci Wins! \nGAME OVER");
+
+        } else {
+
+            // Place ships
+            newGame.setGameShips();
+
+            // Gameplay
+            newGame.gamePlay();
+
+        }
+
+
 
     }
 }
