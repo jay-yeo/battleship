@@ -15,11 +15,22 @@ public class Main {
         // Setup players
         newGame.setGamePlayers();
 
-        // Place ships
-        newGame.setGameShips();
+        // Special Laci EasterEgg
+        if (newGame.getPlayerOne().getPlayerName().toUpperCase().equals("LACI") || newGame.getPlayerTwo().getPlayerName().toUpperCase().equals("LACI") ) {
 
-        // Gameplay
-        newGame.gamePlay();
+            System.out.println("Laci Wins! \nGAME OVER");
+
+        } else {
+
+            // Place ships
+            newGame.setGameShips();
+
+            // Gameplay
+            newGame.gamePlay();
+
+        }
+
+
 
     }
 }
