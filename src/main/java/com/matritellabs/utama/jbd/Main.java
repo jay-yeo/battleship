@@ -1,81 +1,25 @@
 package com.matritellabs.utama.jbd;
-import com.matritellabs.utama.helper.LineByLineReader;
+
+// Battleship by torpedoTeam-2 v0.1.0-beta.2
+// https://github.com/jay-yeo/battleship
 
 public class Main {
     public static void main(String[] args) {
 
-        String ANSI_RESET = "\u001B[0m";
-        String ANSI_BLACK = "\u001B[30m";
-        String ANSI_RED = "\u001B[31m";
-        String ANSI_GREEN = "\u001B[32m";
-        String ANSI_YELLOW = "\u001B[33m";
-        String ANSI_BLUE = "\u001B[34m";
-        String ANSI_PURPLE = "\u001B[35m";
-        String ANSI_CYAN = "\u001B[36m";
-        String ANSI_WHITE = "\u001B[37m";
-
-
-        // Setup New Game
-        System.out.println("BATTLESHIP by torpedoTeam-2");
-        System.out.println("---------------------------");
-        System.out.println("Starting new Battleship game...\n");
+        // Start new game
         Game newGame = new Game();
 
-        // Setup Players
+        // Game menu
+        newGame.gameMenu();
 
-        // Player 1
-        // Enter name
-        System.out.println("Player 1: (Enter Name)");
-        LineByLineReader playerOneNameInput = new LineByLineReader();
-        String playerOneName = playerOneNameInput.readLineFromStdIn();
-        newGame.setGamePlayer(1, playerOneName);
+        // Setup players
+        newGame.setGamePlayers();
 
         // Place ships
-        newGame.playerShipPlacement(newGame.getPlayerOne());
+        newGame.setGameShips();
 
-        // Privacy line-feed
-        newGame.clearConsole();
-
-        // Player 2
-        // Enter name
-        System.out.println("Player 2: (Enter Name)");
-        LineByLineReader playerTwoNameInput = new LineByLineReader();
-        String playerTwoName = playerTwoNameInput.readLineFromStdIn();
-        newGame.setGamePlayer(2, playerTwoName);
-
-        // Place ships
-        newGame.playerShipPlacement(newGame.getPlayerTwo());
-
-        // Privacy line-feed
-        newGame.clearConsole();
-
-        // Play game until either player has zero ships remaining
-        while (newGame.getPlayerOne().getListOfSunkenShips().size() != 6 || newGame.getPlayerTwo().getListOfSunkenShips().size() != 6) {
-
-            if (newGame.getPlayerOne().getListOfSunkenShips().size() == 5 || newGame.getPlayerTwo().getListOfSunkenShips().size() == 5) {
-              break;
-            }
-
-            // Player one turn
-            System.out.println(newGame.getPlayerOne().getListOfSunkenShips());
-            newGame.playerTurn(newGame.getPlayerOne());
-
-            // Privacy line-feed
-            newGame.clearConsole();
-
-
-            // Player two turn
-            System.out.println(newGame.getPlayerTwo().getListOfSunkenShips());
-            newGame.playerTurn(newGame.getPlayerTwo());
-
-            // Privacy line-feed
-            newGame.clearConsole();
-
-        }
-
-        System.out.println("GAME OVER!");
-
-
+        // Gameplay
+        newGame.gamePlay();
 
     }
 }

@@ -1,5 +1,6 @@
 package com.matritellabs.utama.jbd;
 
+// Create Battleship
 public class Battleship extends Ship {
 
     // Constructor

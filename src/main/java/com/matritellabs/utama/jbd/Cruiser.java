@@ -1,8 +1,6 @@
 package com.matritellabs.utama.jbd;
 
-import java.util.ArrayList;
-import java.util.List;
-
+// Create Cruiser ship
 public class Cruiser extends Ship {
 
     public Cruiser() {

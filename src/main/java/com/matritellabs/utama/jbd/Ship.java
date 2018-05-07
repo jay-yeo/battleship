@@ -3,14 +3,17 @@ package com.matritellabs.utama.jbd;
 import java.util.ArrayList;
 import java.util.List;
 
+// Ship Super Class
 public class Ship {
 
+    // Ship fields
     public String shipType;
     public int shipSize;
     public boolean shipSunk;
     public int shipMaxHits;
     public List<Coordinate> shipCoordinates;
 
+    // Ship constructor
     public Ship(String shipPiece, int shipCapacity) {
         shipType = shipPiece;
         shipSize = shipCapacity;
@@ -31,7 +34,7 @@ public class Ship {
 
     // Get ship damage
     public String getShipDamage() {
-        int shipDamage = ((shipSize - shipMaxHits) / shipSize ) * 100;
+        int shipDamage = (shipMaxHits / shipSize) * 100;
         return shipDamage + "%";
     }
 
