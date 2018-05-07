@@ -179,6 +179,9 @@ public class Game {
         System.out.println("\n" + playerTwo.getPlayerName().toUpperCase() + ", press enter to continue!");
         pressEnter();
 
+        // Privacy Linefeed
+        clearConsole();
+
     }
 
     public void gamePlay() {
