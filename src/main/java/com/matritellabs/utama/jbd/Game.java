@@ -187,6 +187,9 @@ public class Game {
 
 
             // Player one turn
+            System.out.println(playerOne.getPlayerName().toUpperCase() + ", press enter to start turn!");
+            pressEnter();
+
             System.out.println(playerOne.getListOfSunkenShips());
             this.playerTurn(playerOne);
             playerOne.getOpponentTable().printTable();
@@ -194,13 +197,16 @@ public class Game {
                 System.out.println("Congrats, " + playerOne.getPlayerName() + " won!");
                 break;
             }
-            System.out.println(playerOne.getPlayerName().toUpperCase() + ", press enter to continue!");
+            System.out.println(playerOne.getPlayerName().toUpperCase() + ", press enter to pass turn!");
             pressEnter();
 
             // Privacy line-feed
             clearConsole();
 
-            // Player two turn
+            // // Player two turn
+            System.out.println(playerTwo.getPlayerName().toUpperCase() + ", press enter to start turn!");
+            pressEnter();
+
             System.out.println(playerTwo.getListOfSunkenShips());
             this.playerTurn(playerTwo);
             playerTwo.getOpponentTable().printTable();
@@ -213,8 +219,6 @@ public class Game {
 
             // Privacy line-feed
             clearConsole();
-//            System.out.println(playerOneName.toUpperCase() + ", press enter to continue!");
-//            enter.readLineFromStdIn();
 
         }
 
