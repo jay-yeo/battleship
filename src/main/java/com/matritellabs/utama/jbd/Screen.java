@@ -18,6 +18,9 @@ public class Screen extends JFrame {
         contentFrame.setLayout(new BorderLayout());
         this.getContentPane().add(contentFrame);
 
+        // Frame styles
+        contentFrame.setBackground(Color.BLACK);
+
         // Frame attributes
 
         // Set frame window size
