@@ -1,5 +1,8 @@
 package com.matritellabs.utama.jbd;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +14,8 @@ public class Player {
     private Table opponentTable;
     private List<Ship> listOfShips;
     private List<Ship> sunkenShip;
+
+    private final static Logger log = LoggerFactory.getLogger(Player.class);
 
 
     // Constructor
@@ -192,6 +197,7 @@ public class Player {
                 opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 9;
                 playerOpponent.getPlayerTable().tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 9;
                 System.out.println("MISS! Missile unsuccessful...");
+                log.info(playerName + " fired a missile at " + coordinateToFire.getX() + coordinateToFire.getY() + " Result: MISS" );
             }
             else if (oppPlayertable == 2 || oppPlayertable == 3 || oppPlayertable == 4 || oppPlayertable ==5) {
                 opponentTable.tableArray[coordinateToFire.getX()][coordinateToFire.getY()] = 8;
@@ -208,8 +214,12 @@ public class Player {
                                     playerOpponent.getPlayerTable().tableArray[coordinate1.getX()][coordinate1.getY()] = 7;
                                 }
                                 System.out.println("DIRECT HIT! Missile successful... You sank the enemy's " + ship.shipType.toUpperCase());
+                                log.info(playerName + " fired a missile at " + coordinateToFire.getX() + coordinateToFire.getY() + " Result: HIT " + ship.shipType.toUpperCase() + " was sunk!" );
+
                             }else {
                                 System.out.println("DIRECT HIT! Missile successful...");
+                                log.info(playerName + " fired a missile at " + coordinateToFire.getX() + coordinateToFire.getY() + " Result: HIT");
+
                             }
                         }
                     }
@@ -217,6 +227,8 @@ public class Player {
             }
         }else {
             System.out.println("Position already fired upon, please try again!");
+            log.info(playerName + " fired a missile at " + coordinateToFire.getX() + coordinateToFire.getY() + " Result: Position already fired upon!" );
+
         }
     }
 }
