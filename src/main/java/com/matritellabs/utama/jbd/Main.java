@@ -11,6 +11,8 @@ public class Main {
         // Start new game
         Game newGame = new Game();
 
+
+
         // Game menu
         newGame.gameMenu();
 

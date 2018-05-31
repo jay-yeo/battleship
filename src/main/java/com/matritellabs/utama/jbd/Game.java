@@ -1,6 +1,7 @@
 package com.matritellabs.utama.jbd;
 import com.matritellabs.utama.helper.LineByLineReader;
 import com.matritellabs.utama.networking.Client;
+import com.matritellabs.utama.networking.Server;
 
 import java.io.IOException;
 
@@ -56,11 +57,12 @@ public class Game {
 
     // Create and log new players
     public void setGamePlayers() throws IOException {
+        Server.startHosting();
 
         Client.start();
 
         // Create player one
-        Server.startHosting();
+
         System.out.println("\nPlayer 1: (Enter Name)");
         LineByLineReader playerOneNameInput = new LineByLineReader();
         String playerOneName = playerOneNameInput.readLineFromStdIn();

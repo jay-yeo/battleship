@@ -5,8 +5,8 @@ import java.net.Socket;
 
 public class Client {
 
-    public static void start() throws IOException {
-        Socket client = new Socket("192.168.0.193", 23456);
+    public static void start(String host, int port) throws IOException {
+        Socket client = new Socket(host, port);
         InputStream is = client.getInputStream();
         OutputStream os = client.getOutputStream();
 

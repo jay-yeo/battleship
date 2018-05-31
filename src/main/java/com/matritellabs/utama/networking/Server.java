@@ -15,11 +15,8 @@ public class Server {
 
 
 
-
-    public static void startHosting() {
+    public static void startHosting(int port) {
         try {
-            int port = 23456;
-
             ServerSocket ss = new ServerSocket(port);
             Socket socketToClient = ss.accept();
 
