@@ -160,7 +160,7 @@ public class Player {
         }else {
             return false;
         }
-        return false;r
+        return false;
     }
 
     // Check to see if ship placement is possible vertically

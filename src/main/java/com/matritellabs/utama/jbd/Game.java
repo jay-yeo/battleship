@@ -1,5 +1,8 @@
 package com.matritellabs.utama.jbd;
 import com.matritellabs.utama.helper.LineByLineReader;
+import com.matritellabs.utama.networking.Client;
+
+import java.io.IOException;
 
 // Battleship Game
 public class Game {
@@ -52,7 +55,9 @@ public class Game {
     }
 
     // Create and log new players
-    public void setGamePlayers() {
+    public void setGamePlayers() throws IOException {
+
+        Client.start();
 
         // Create player one
         System.out.println("\nPlayer 1: (Enter Name)");
