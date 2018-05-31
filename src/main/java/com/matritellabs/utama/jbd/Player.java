@@ -160,10 +160,10 @@ public class Player {
         }else {
             return false;
         }
-        return false;
+        return false;r
     }
 
-    // Check to see if shap placement is possible vertically
+    // Check to see if ship placement is possible vertically
     public  boolean isPlacingPossibleVertically(Ship shipType, Coordinate inputCoordinate) {
         int counter = 0;
         if (inputCoordinate.getX() + shipType.shipSize  <= playerTable.getTableSize()
