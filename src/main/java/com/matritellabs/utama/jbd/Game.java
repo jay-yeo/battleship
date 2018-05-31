@@ -55,14 +55,44 @@ public class Game {
         System.out.println("Starting new Battleship game...\n");
     }
 
+    // Set Game host or join
+    public void setGameNetworking() {
+        System.out.println("Would you like to host a game or join (enter H or J)");
+
+        // User input
+        LineByLineReader xInput = new LineByLineReader();
+        String userInput = xInput.readLineFromStdIn();
+
+        // User options - H to host a game, J to join a game
+        if (userInput.toUpperCase().equals("H")) {
+            System.out.println("HOST");
+            System.out.println("Please enter port:");
+            String port = xInput.readLineFromStdIn();
+            Server.startHosting(Integer.parseInt(port));
+        } else if (userInput.toUpperCase().equals("J")) {
+            System.out.println("Client");
+            System.out.println("Please enter host IP:");
+            String host = xInput.readLineFromStdIn();
+            System.out.println("Please enter host port:");
+            String port = xInput.readLineFromStdIn();
+
+            try {
+                Client.start(host,Integer.parseInt(port));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Invalid Command");
+        }
+    }
+
     // Create and log new players
     public void setGamePlayers() throws IOException {
-        Server.startHosting();
 
-        Client.start();
+        setGameNetworking();
 
         // Create player one
-
+        //Server.startHosting();
         System.out.println("\nPlayer 1: (Enter Name)");
         LineByLineReader playerOneNameInput = new LineByLineReader();
         String playerOneName = playerOneNameInput.readLineFromStdIn();
