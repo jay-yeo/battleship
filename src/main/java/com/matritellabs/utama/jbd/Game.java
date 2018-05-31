@@ -60,6 +60,7 @@ public class Game {
         Client.start();
 
         // Create player one
+        Server.startHosting();
         System.out.println("\nPlayer 1: (Enter Name)");
         LineByLineReader playerOneNameInput = new LineByLineReader();
         String playerOneName = playerOneNameInput.readLineFromStdIn();
