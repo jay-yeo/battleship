@@ -68,7 +68,12 @@ public class Game {
             System.out.println("HOST");
             System.out.println("Please enter port:");
             String port = xInput.readLineFromStdIn();
-            Server.startHosting(Integer.parseInt(port));
+
+            try {
+                Server.start(Integer.parseInt(port));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else if (userInput.toUpperCase().equals("J")) {
             System.out.println("Client");
             System.out.println("Please enter host IP:");
