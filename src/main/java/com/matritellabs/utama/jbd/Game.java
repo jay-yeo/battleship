@@ -1,11 +1,16 @@
 package com.matritellabs.utama.jbd;
 import com.matritellabs.utama.helper.LineByLineReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 // Battleship Game
 public class Game {
     private String gameName;
     private Player playerOne;
     private Player playerTwo;
+
+    private final static Logger log = LoggerFactory.getLogger(Game.class);
 
     // Constructor
     public Game() {
@@ -63,6 +68,9 @@ public class Game {
         Player player1 = new Player(playerOneName, 1);
         playerOne = player1;
 
+        // Log playerOne
+        log.info("Player 1 Created - " + playerOne.getPlayerName());
+
         // Create player two
         System.out.println("\nPlayer 2: (Enter Name)");
         LineByLineReader playerTwoNameInput = new LineByLineReader();
@@ -71,6 +79,9 @@ public class Game {
         // playerTwo initialization and assignment
         Player player2 = new Player(playerTwoName, 2);
         playerTwo = player2;
+
+        // Log playerTwo
+        log.info("Player 2 Created - " + playerTwo.getPlayerName());
 
         // End setGamePlayers
         System.out.println("\nPlayer Setup Complete!\n");
@@ -92,6 +103,7 @@ public class Game {
 
         System.out.println("\n" + gamePlayer.getPlayerName().toUpperCase() + ", prepare your fleet!");
         System.out.println("---------------------------");
+        log.info(gamePlayer.getPlayerName() + " started placing ships...");
 
         for (Ship ship : gamePlayer.getListOfShips()) {
 
@@ -155,6 +167,9 @@ public class Game {
                 System.out.println("\nYour Ships: \n");
                 gamePlayer.getPlayerTable().printTable();
                 System.out.println("---------------------------");
+
+                // Log ship placement
+                log.info(gamePlayer.getPlayerName() + " placed a " + ship.shipType + " at coordinate " + xValue.toUpperCase() + yValue);
             }
 
         }
@@ -170,6 +185,7 @@ public class Game {
         this.playerShipPlacement(playerOne);
         System.out.println("\n" + playerOne.getPlayerName().toUpperCase() + ", press enter to continue!");
         pressEnter();
+        log.info(playerOne.getPlayerName() + " ships have been placed.");
 
         // Privacy Linefeed
         clearConsole();
@@ -178,6 +194,9 @@ public class Game {
         this.playerShipPlacement(playerTwo);
         System.out.println("\n" + playerTwo.getPlayerName().toUpperCase() + ", press enter to continue!");
         pressEnter();
+        log.info(playerTwo.getPlayerName() + " ships have been placed.");
+
+        log.info("Ship setup complete!");
 
         // Privacy Linefeed
         clearConsole();
@@ -192,16 +211,19 @@ public class Game {
             // Player one turn
             System.out.println(playerOne.getPlayerName().toUpperCase() + ", press enter to start turn!");
             pressEnter();
+            log.info(playerOne.getPlayerName() + " started their turn.");
 
             System.out.println(playerOne.getListOfSunkenShips());
             this.playerTurn(playerOne);
             playerOne.getOpponentTable().printTable();
             if (playerTwo.getListOfSunkenShips().size() == 5) {
                 System.out.println("Congrats, " + playerOne.getPlayerName() + " won!");
+                log.info("GAME OVER!" + playerOne.getPlayerName() + " won!");
                 break;
             }
             System.out.println(playerOne.getPlayerName().toUpperCase() + ", press enter to pass turn!");
             pressEnter();
+            log.info(playerOne.getPlayerName() + " ended their turn.");
 
             // Privacy line-feed
             clearConsole();
@@ -209,16 +231,19 @@ public class Game {
             // // Player two turn
             System.out.println(playerTwo.getPlayerName().toUpperCase() + ", press enter to start turn!");
             pressEnter();
+            log.info(playerTwo.getPlayerName() + " started their turn.");
 
             System.out.println(playerTwo.getListOfSunkenShips());
             this.playerTurn(playerTwo);
             playerTwo.getOpponentTable().printTable();
             if (playerOne.getListOfSunkenShips().size() == 5) {
                 System.out.println("Congrats, " + playerTwo.getPlayerName() + " won!" + "\n");
+                log.info("GAME OVER!" + playerTwo.getPlayerName() + " won!");
                 break;
             }
             System.out.println(playerTwo.getPlayerName().toUpperCase() + ", press enter to continue!");
             pressEnter();
+            log.info(playerOne.getPlayerName() + " ended their turn.");
 
             // Privacy line-feed
             clearConsole();
