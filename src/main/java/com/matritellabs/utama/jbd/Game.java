@@ -1,5 +1,6 @@
 package com.matritellabs.utama.jbd;
 import com.matritellabs.utama.helper.LineByLineReader;
+import com.matritellabs.utama.networking.Server;
 
 // Battleship Game
 public class Game {
@@ -55,6 +56,7 @@ public class Game {
     public void setGamePlayers() {
 
         // Create player one
+        Server.startHosting();
         System.out.println("\nPlayer 1: (Enter Name)");
         LineByLineReader playerOneNameInput = new LineByLineReader();
         String playerOneName = playerOneNameInput.readLineFromStdIn();
